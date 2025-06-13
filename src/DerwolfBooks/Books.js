@@ -64,12 +64,12 @@ const livros = [
   },
   {
     id: 8,
-    nome: "A Loba da Névoa",
-    descricao: "",
-    arquivo: "/DerwolfBooks/Books/A_Loba_da_Nevoa.pdf",
-    imagem: "/DerwolfBooks/Books/A_Loba_da_Nevoa.png",
-    nota: 0,
-    disponivel: false,
+    nome: "O Cântico de Melissa",
+    descricao: "Ben Ahfkael narra com precisão solene a saga trágica de Melissa e Sabrina, filhas de um reino marcado por pactos sombrios e destinos entrelaçados. Ele revela o preço da salvação, a corrupção da inocência e a luta silenciosa entre luz e sombra, evidenciando o drama de almas condenadas a servir forças antigas. Através de seu relato, o passado esquecidose torna voz viva, e a memória, instrumento de poder e mistério.",
+    arquivo: "/DerwolfBooks/Books/O_Cantico_De_Melissa.pdf",
+    imagem: "/DerwolfBooks/Books/O_Cantico_De_Melissa.png",
+    nota: 8.7,
+    disponivel: true,
   },
 ];
 
