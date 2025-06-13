@@ -73,7 +73,7 @@ const livros = [
   },
   {
     id: 9,
-    nome: "O_Grito_da_Floresta",
+    nome: "O Grito da Floresta",
     descricao: "Ben Ahfkael narra, dirigindo-se a Plendor, um episódio ocorrido no rigoroso continente de Laekage, onde a jovem Alissa demonstra coragem ímpar ao enfrentar perigos da floresta para salvar o menino Eiran, ameaçado por lobos ferozes. Em meio à natureza implacável e ao inverno severo, ele revela o valor da justiça ativa e da bravura tranquila, capturando a essência da luta humana pela sobrevivência e dignidade num mundo hostil.",
     arquivo: "/DerwolfBooks/Books/O_Grito_da_Floresta.pdf",
     imagem: "/DerwolfBooks/Books/O_Grito_da_Floresta.png",
