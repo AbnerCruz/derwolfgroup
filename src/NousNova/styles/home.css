@@ -1,0 +1,67 @@
+/* SAUDAÇÃO */
+.NousNovaHome {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centraliza horizontalmente os filhos */
+    font-family: 'Georgia', serif;
+    color: #ffffff;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.4);
+    background-color: #14111b;
+}
+
+.NousNovaHome #welcome-section {
+  padding: 5vh 5vw 5vh 10vw;
+  margin-bottom: 3%;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f0c040;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.NousNovaHome #welcome-section h2{
+  font-size: 4rem;
+}
+
+.NousNovaHome #welcome-section p {
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* CITAÇÃO FINAL */
+#closing-quote {
+  background-color: #150f299d;
+  padding: 2%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.3);
+  height: 50%;
+}
+
+#closing-quote p {
+  font-style: italic;
+  color: #ffffff;
+  margin: 0px;
+}
+
+img{
+  max-width: 200px;
+  height: auto;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+  #navigation-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .NousNovaHome{
+    padding-bottom: 100px;
+  }
+  .NousNovaHome #welcome-section p{
+    font-size: 2rem;
+  }
+}

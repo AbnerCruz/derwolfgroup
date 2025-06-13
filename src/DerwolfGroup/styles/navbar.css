@@ -1,0 +1,45 @@
+.DerwolfGroup nav {
+  position: fixed;
+  top: 0;
+  background-color: #1c1c1c; /* Azul Cósmico */
+  width: 100vw;
+  padding: 1vh;
+  display: flex;
+  justify-content: center;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.4);
+  font-family: 'Inter', sans-serif;
+}
+
+.DerwolfGroup nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.DerwolfGroup nav li a {
+  color: #ffffff; /* Bege Areia Antiga */
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.DerwolfGroup nav li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #E8C547; /* Dourado Iluminista */
+  transition: width 0.3s;
+}
+
+.DerwolfGroup nav li a:hover {
+  color: #E8C547; /* Dourado Iluminista */
+}
+
+.DerwolfGroup nav li a:hover::after {
+  width: 100%;
+}

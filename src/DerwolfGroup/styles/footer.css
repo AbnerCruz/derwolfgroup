@@ -1,0 +1,85 @@
+/* Container principal do footer */
+.DerwolfGroup footer{
+  margin-top: auto; 
+  bottom: 0;
+  position: static;
+  background-color: #1c1c1c;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+.DerwolfGroup footer #footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 10%;
+}
+
+.DerwolfGroup footer #footer-content #social-media {
+    display: flex;
+    height: 100%;
+}
+
+.DerwolfGroup footer #footer-content #social-media h4{
+    height: 50%;
+    margin: 10%;
+}
+.DerwolfGroup footer #footer-content #social-media ul{
+    margin: 5%;
+}
+
+.DerwolfGroup footer h3, .DerwolfGroup footer h4 {
+  margin-bottom: 10px;
+  color: #f0c040; /* Dourado leve para destacar títulos */
+}
+
+.DerwolfGroup footer p {
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+/* Seções internas */
+.DerwolfGroup footer div div {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Lista de links sociais */
+.DerwolfGroup footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.DerwolfGroup footer ul li {
+  margin-bottom: 8px;
+}
+
+.DerwolfGroup footer ul li a {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.DerwolfGroup footer ul li a:hover {
+  color: #f0c040;
+}
+
+/* Linha inferior do footer */
+.DerwolfGroup footer #copyright {
+  border-top: 1px solid #333;
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  justify-items: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .DerwolfGroup footer #footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

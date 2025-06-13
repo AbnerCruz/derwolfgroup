@@ -1,0 +1,85 @@
+import GenerateCourse from "../../../../../CoursesGenerator"
+export const planetsList = [{
+    //Planets from Solar System: Matemática Para Concursos
+    planets_MatematicaParaConcursos: [
+        GenerateCourse({
+            disponivel: false,
+            id: "conjuntos",
+            name: "Conjuntos",
+            motivation: "Domine a matemática que mais cai e conquiste sua aprovação",
+            price: 30,
+            discount: 50,
+            description: "Este módulo apresenta os fundamentos da Teoria dos Conjuntos — base para a lógica matemática e muitas questões de concursos.",
+            problemTitle: "Problema comum nos concursos",
+            problemContent: "Muitos alunos erram questões simples por falta de base em conjuntos.",
+            solutionTitle: "Solução completa",
+            solutionContent: "Aqui você aprenderá tudo sobre conjuntos com foco em provas.",
+            courseContentsTitle: "O que você vai aprender",
+            courseContentsContent: [
+            "Operações com números naturais, inteiros, racionais e decimais",
+            "Problemas com frações, razões e proporções",
+            "Porcentagem, juros simples e compostos",
+            "Equações do 1º e 2º grau",
+            "Análise e interpretação de gráficos e tabelas",
+            "Resolução de questões de concursos reais",
+            ],
+            socialProofTitle: "Resultados de alunos",
+            socialProofContent: [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+            ],
+            freeVideoDemonstrationTitle: "Aula gratuita",
+            freeVideoDemonstrationContent: "Veja um trecho da aula para entender como funciona.",
+            freeVideoID: "",
+            callToActionTitle: "Garanta sua vaga",
+            checkOutURL: "",
+            FAQTitle: "Dúvidas Frequentes",
+            FAQContent: [
+                { question: "O curso tem certificado?", answer: "Sim, ao final do curso você receberá um certificado." },
+                { question: "Por quanto tempo terei acesso?", answer: "Acesso vitalício ao conteúdo do curso." },
+            ],
+        }),
+        //Next Planet
+        GenerateCourse({
+            disponivel: false,
+            id: "conjuntos-numericos",
+            name: "Conjuntos Numéricos",
+            motivation: "Domine a matemática que mais cai e conquiste sua aprovação",
+            price: 30,
+            discount: 0,
+            description: "Entenda os tipos de números, suas organizações e operações básicas — fundamentais para resolver problemas e evoluir nos estudos.",
+            problemTitle: "Problema comum nos concursos",
+            problemContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod nisi vel purus gravida, in dictum justo bibendum",
+            solutionTitle: "Solução completa",
+            solutionContent: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod nisi vel purus gravida, in dictum justo bibendum",
+            courseContentsTitle: "O que você vai aprender",
+            courseContentsContent: [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod nisi vel purus gravida, in dictum justo bibendum",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod nisi vel purus gravida, in dictum justo bibendum",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod nisi vel purus gravida, in dictum justo bibendum",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod nisi vel purus gravida, in dictum justo bibendum",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod nisi vel purus gravida, in dictum justo bibendum",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod nisi vel purus gravida, in dictum justo bibendum",
+            ],
+            socialProofTitle: "Resultados de alunos",
+            socialProofContent: [
+                "image1.png",
+                "image2.png",
+                "image3.png",
+            ],
+            freeVideoDemonstrationTitle: "Aula gratuita",
+            freeVideoDemonstrationContent: "Veja um trecho da aula para entender como funciona.",
+            freeVideoID: "",
+            callToActionTitle: "Garanta sua vaga",
+            checkOutURL: "",
+            FAQTitle: "Dúvidas Frequentes",
+            FAQContent: [
+                { question: "O curso tem certificado?", answer: "Sim, ao final do curso você receberá um certificado." },
+                { question: "Por quanto tempo terei acesso?", answer: "Acesso vitalício ao conteúdo do curso." },
+            ],
+        }),
+    ],
+    // Planets from Solar System: Next
+
+}]

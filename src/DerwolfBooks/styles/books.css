@@ -1,0 +1,58 @@
+.book-page-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  padding-top: 90px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.book-title {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.book-description {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.pdf-viewer {
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.download-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2c3e50;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.download-link:hover {
+  background-color: #34495e;
+}
+
+@media screen and (max-width: 600px) {
+  .book-page-container {
+    padding: 10px;
+  }
+
+  .book-title {
+    font-size: 1.5em;
+  }
+
+  .pdf-viewer iframe {
+    height: 400px;
+  }
+}

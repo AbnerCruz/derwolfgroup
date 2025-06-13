@@ -1,0 +1,107 @@
+.NousNovaMathPage {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #14111b;
+  color: #fff;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.4);
+}
+
+.NousNovaMathPage #title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.NousNovaMathPage #title h1 {
+  margin-right: 8px;
+}
+
+.NousNovaMathPage #title h3 {
+  margin: 0;
+  color: #ccc;
+}
+
+.NousNovaMathPage section h2 {
+  color: #f0c040;
+  margin-top: 2rem;
+}
+
+.NousNovaMathPage p {
+}
+
+.NousNovaMathPage #button {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Estilização da seção de exploração */
+.NousNovaMathPage #explore ul.explore-list {
+  list-style: none;
+  padding: 30px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  background-color: #1f1b2a;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+
+}
+
+.NousNovaMathPage .explore-card {
+  display: block;
+  background-color: #1f1b2a;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.NousNovaMathPage .explore-card:hover {
+  background-color: #2a233a;
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+.NousNovaMathPage #buy{
+  margin-top: 5%;
+  justify-self: flex-start;
+}
+
+.NousNovaMathPage #buy #discount{
+  align-items: center;
+}
+
+.NousNovaMathPage #buy #discount #_1 {
+  font-size: 2.5rem;
+  color: #f0c040;
+  font-weight: bold;
+  margin: 0;
+}
+.NousNovaMathPage #buy #discount #_2{
+  font-size: 1.2rem;
+  color: #8f3030;
+  font-weight: bold;
+  margin: 0;
+  text-decoration: line-through;
+}
+
+.NousNovaMathPage #buy .card{
+  background-color: #00c462;
+  color: #14111b;
+  display: flex;
+  align-self: center;
+}
+
+@media (max-width:1000px){
+  .NousNovaMathPage{
+    padding-bottom: 600px;
+  }
+}

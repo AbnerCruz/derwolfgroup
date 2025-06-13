@@ -1,0 +1,42 @@
+.NousNovaTeachers{
+  width: 80%;
+  margin: 0 auto;
+  padding: 5%;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #14111b;
+  color: #fff;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.4);
+}
+
+.teacherCard{
+    border-radius: 10px 10px;
+    padding: 2%;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.4);
+}
+
+.teacherCard #imageContainer{
+    display: flex;
+    align-items: center;
+}
+
+.NousNovaTeachers .teacherCard .teacherImage{
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.NousNovaTeachers h1, h2, h3{
+    color: #f0c040;
+}
+
+.teacherCard:hover{
+    transform: translateY(-5px);
+    background-color: #1f17278f;
+}
+
+@media (max-width: 1000px) {
+  .NousNovaTeachers{
+    padding-bottom: 1000px;
+  }
+}

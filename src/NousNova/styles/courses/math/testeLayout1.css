@@ -1,0 +1,63 @@
+.NousNovaMath {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(145deg, #1b1b2f, #2c2c54);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+#title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#title h1 {
+  margin: 0;
+  color: #8be9fd;
+}
+
+#title h3 {
+  font-weight: 300;
+  color: #d6d6f5;
+  margin-top: 0.5rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+section h2 {
+  color: #ffb86c;
+  margin-bottom: 1rem;
+}
+
+section ul {
+  line-height: 1.7;
+  color: #e0e0e0;
+}
+
+section ul {
+  padding-left: 1.5rem;
+}
+
+section ul li {
+  margin-bottom: 0.7rem;
+}
+
+.planet-button {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #50fa7b;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.planet-button:hover {
+  background-color: #3ddc68;
+  transform: scale(1.05);
+}
