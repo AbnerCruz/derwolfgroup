@@ -80,6 +80,15 @@ const livros = [
     nota: 8.3,
     disponivel: true,
   },
+  {
+    id: 10,
+    nome: "A Justiça e a Bondade de Deus na Bíblia",
+    descricao: "Reflexão contundente sobre a justiça e bondade de Deus na Bíblia, confrontando a ideia de que o Deus do Antigo Testamento seria cruel, em contraste com o Novo. A análise revela que não há contradição moral, mas um intervalo de graça no tempo. Deus não mudou — é justo, santo e misericordioso, e Seus juízos são atos de purificação, não de genocídio. A ira divina permanece viva, aguardando seu tempo escatológico.",
+    arquivo: "/DerwolfBooks/Books/A_Justiça_e_a_Bondade_de_Deus_na_Bíblia.pdf",
+    imagem: "/DerwolfBooks/Books/A_Justiça_e_a_Bondade_de_Deus_na_Bíblia.png",
+    nota: 8.9,
+    disponivel: true,
+  },
 ];
 
 export default livros;
