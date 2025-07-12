@@ -131,6 +131,19 @@ const livros = [
     nota: 8.9,
     disponivel: true,
   },
+  {
+    id: 11,
+    nome: "Guia da Vida - O Dever de Todo Ser Humano",
+    descricao: "'Guia da Vida – O Dever de Todo Ser Humano' é uma tese que une razão e fé para afirmar que viver corretamente é um dever objetivo e universal. A obra percorre desde as obrigações simples do cotidiano até os fundamentos espirituais da existência, mostrando que coragem e temor a Deus são os pilares de uma vida íntegra. Cada ação, por menor que pareça, é parte de um chamado maior à dignidade, à responsabilidade e à eternidade.",
+    arquivo: "/DerwolfBooks/Books/Guia_da_vida.pdf",
+    imagem: "/DerwolfBooks/Books/Guia_da_vida.png",
+    filtros: {
+      genre: "Ensaio Reflexivo",
+      subGenre: ["Religião", "Espiritual", "Filosofia"],
+    },
+    nota: 9.23,
+    disponivel: true,
+  },
 ];
 
 export default livros;
