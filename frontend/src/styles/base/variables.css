@@ -1,0 +1,30 @@
+:root {
+  /* ========== Cores principais ========== */
+  --preto-cosmico: #0A0A0A;
+  --dourado-intenso: #D4AF37;        /* dourado principal */
+  --dourado-brilhante: #E6C85F;     /* dourado mais claro e vibrante */
+  --dourado-escuro: #B88F2F;        /* dourado mais escuro e elegante */
+  --azul-cosmico-1: #1B1F3B;
+  --azul-cosmico-2: #0e1124;
+  --azul-celeste: #5DADE2;
+  --cinza-nebuloso: #DADADA;
+  --branco-puro: #FFFFFF;
+  --bege-classico: #F5F0E1;
+  --vermelho-alaranjado: #C0392B;
+  --verde-esmeralda: #27AE60;
+
+  /* ========== Cores de contexto ========== */
+  --background-page: var(--bege-classico);
+  --texto-escuro: #222222;
+
+  /* ========== Tipografia ========== */
+  --font-titulo: "Playfair Display", serif;
+  --font-texto: "Inter", sans-serif;
+  --fonte-titulo: var(--font-titulo);
+  --fonte-texto: var(--font-texto);
+
+  /* ========== Layout e efeitos ========== */
+  --raio-arredondado: 0.5rem;
+  --espacamento-md: 1rem;
+  --sombra-suave: 0 1px 10px rgba(0, 0, 0, 0.3);
+}

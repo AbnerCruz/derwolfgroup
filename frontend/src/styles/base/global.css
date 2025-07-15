@@ -1,0 +1,61 @@
+/* global */
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+p {
+  font-size: 1.25rem;
+}
+
+a{
+  margin: 1rem 0 1rem 0;
+}
+
+/* ========== LISTAS - NOUS NOVA ========== */
+
+ul, ol {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+ul li, ol li {
+  list-style-type: none;
+  font-family: var(--font-texto);
+}
+
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 0.95rem;
+  }
+}

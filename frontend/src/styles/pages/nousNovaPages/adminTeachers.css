@@ -1,0 +1,186 @@
+.admin-teachers-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--branco-puro);
+  color: var(--preto-cosmico);
+  font-family: var(--fonte-texto);
+}
+
+.admin-teachers-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--azul-cosmico-1);
+  text-align: center;
+}
+
+/* FORMULÁRIO PRINCIPAL */
+.admin-teachers-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacamento-md);
+  background-color: var(--bege-classico);
+  padding: 2rem;
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  margin-bottom: 2rem;
+}
+
+.admin-teachers-form h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--azul-cosmico-1);
+}
+
+.admin-teachers-form input[type="text"],
+.admin-teachers-form input[type="file"],
+.input-instagram {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--cinza-nebuloso);
+  border-radius: 4px;
+  background-color: var(--branco-puro);
+}
+
+/* CHECKBOXES DE DISCIPLINAS */
+.disciplines-fieldset {
+  border: 1px solid var(--cinza-nebuloso);
+  border-radius: var(--raio-arredondado);
+  padding: 1rem;
+}
+
+.disciplines-fieldset legend {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--azul-cosmico-1);
+}
+
+.disciplines-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.discipline-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.discipline-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--azul-cosmico-1);
+}
+
+/* BOTÕES PRINCIPAIS */
+.btn-add-teacher,
+.btn-cancel-edit {
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--raio-arredondado);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-add-teacher {
+  background-color: var(--azul-cosmico-1);
+  color: var(--branco-puro);
+}
+
+.btn-add-teacher:hover {
+  background-color: var(--azul-cosmico-2);
+}
+
+.btn-cancel-edit {
+  background-color: var(--cinza-nebuloso);
+  color: var(--preto-cosmico);
+}
+
+.btn-cancel-edit:hover {
+  background-color: #bbb;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* LISTAGEM DE PROFESSORES */
+.teachers-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.teacher-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3f3f3;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: var(--raio-arredondado);
+  font-size: 1rem;
+}
+
+/* BOTÕES DE AÇÃO */
+.edit-button,
+.remove-button {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edit-button {
+  background-color: var(--dourado-intenso);
+  color: var(--preto-cosmico);
+  margin-right: 0.5rem;
+}
+
+.edit-button:hover {
+  background-color: var(--dourado-escuro);
+}
+
+.remove-button {
+  background-color: var(--vermelho-alaranjado);
+  color: var(--branco-puro);
+}
+
+.remove-button:hover {
+  background-color: #a93226;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+  .admin-teachers-form {
+    padding: 1rem;
+  }
+
+  .disciplines-checkboxes {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .admin-teachers-title {
+    font-size: 2rem;
+  }
+
+  .btn-add-teacher,
+  .btn-cancel-edit {
+    width: 100%;
+  }
+
+  .teacher-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,106 @@
+/* ========== FOOTER - NOUS NOVA ========== */
+
+footer {
+  background-color: var(--azul-cosmico-2);
+  color: var(--branco-puro);
+  padding: 1rem 1rem;
+  font-family: var(--font-texto);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2%;
+}
+
+footer img {
+  height: 25px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+footer img:hover, footer a:hover {
+  transform: scale(1.05);
+}
+
+#footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+#footer-content h3 {
+  font-family: var(--font-titulo);
+  color: var(--dourado-intenso);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#footer-content h4 {
+  font-family: var(--font-titulo);
+  color: var(--dourado-intenso);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#footer-content p {
+  font-size: 1rem;
+  color: var(--cinza-nebuloso);
+  max-width: 400px;
+}
+
+#social-media ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start; /* ou center / space-between */
+}
+
+#social-media ul li {
+  margin: 0;
+}
+
+
+#social-media ul li a {
+  color: var(--cinza-nebuloso);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+#social-media ul li a:hover {
+  color: var(--branco-puro);
+}
+
+#icon {
+  width: 20px;
+  height: 20px;
+}
+
+#copyright{
+  margin-top: 1rem;
+  color: var(--cinza-nebuloso);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0;
+}
+
+#copyright a{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#copyright p{
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+#copyright img{
+  height: 30px;
+  margin: 0;
+  padding: 0;
+}

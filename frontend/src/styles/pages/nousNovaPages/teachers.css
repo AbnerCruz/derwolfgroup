@@ -1,0 +1,48 @@
+.NousNovaTeachers {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: var(--background-page);
+  font-family: var(--font-texto);
+  color: var(--preto-cosmico);
+}
+
+.teachers-title {
+  font-size: 2rem;
+  font-family: var(--font-titulo);
+  color: var(--azul-cosmico-2);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.teacher-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 1rem;
+}
+
+.teacher-image-container {
+  text-align: center;
+}
+
+.teacher-image {
+  height: 100px;
+  width: auto;
+  object-fit: cover;
+  border-radius: var(--raio-arredondado);
+}
+
+.teacher-name {
+  margin-top: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: var(--font-titulo);
+}
+
+.teacher-disciplines {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--azul-cosmico-1);
+  text-align: center;
+}

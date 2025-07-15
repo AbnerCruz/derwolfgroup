@@ -1,0 +1,380 @@
+/* ====================================================
+   VARIÁVEIS GLOBAIS (assumidas no :root)
+==================================================== */
+/* Use variáveis CSS para cores, fontes, bordas, etc. */
+
+/* ====================================================
+   ESTRUTURA GERAL DA PÁGINA
+==================================================== */
+.CoursesPageGlobalDiv {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: var(--fonte-texto);
+  color: var(--preto-cosmico);
+  background-color: var(--background-page);
+}
+
+.NousNovaCourses,
+.NousNovaPlanetsLayout {
+  display: flex;
+  flex-direction: column;
+}
+
+.NousNovaPlanetsLayout section {
+  padding: 5rem;
+  border-bottom: 1px solid var(--cinza-claro);
+}
+
+.NousNovaPlanetsLayout ul {
+  margin-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.NousNovaPlanetsLayout iframe {
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  width: 100%;
+  height: 360px;
+}
+
+/* ====================================================
+   TÍTULOS E TEXTOS
+==================================================== */
+#title h1,
+#title h3,
+.catalog-title,
+.course-section h2 {
+  font-family: var(--fonte-titulo);
+  color: var(--azul-cosmico-1);
+  margin-bottom: 0.5rem;
+}
+
+#title h1 {
+  margin-bottom: 0.25rem;
+}
+
+#title h3 {
+  margin-bottom: 2rem;
+  color: var(--dourado-intenso);
+}
+
+.course-section p,
+.catalog-description,
+.price-summary,
+.planet-price {
+  line-height: 1.6;
+  max-width: 900px;
+  margin-bottom: 1rem;
+  color: var(--cinza-escuro);
+}
+
+/* ====================================================
+   CONTEÚDO DOS CURSOS - PLANETAS
+==================================================== */
+.catalog-container.planets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.planet-card {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-radius: var(--raio-arredondado);
+  background-color: var(--fundo-card);
+  box-shadow: var(--sombra-suave);
+  transition: box-shadow 0.3s ease;
+  color: var(--preto-cosmico);
+}
+
+.planet-card:hover {
+  box-shadow: var(--sombra-intensa);
+}
+
+.catalog-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.catalog-description {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.planet-price {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--azul-cosmico-1);
+}
+
+/* ====================================================
+   PREÇO E DESCONTO
+==================================================== */
+.price-old {
+  color: var(--vermelho-alaranjado);
+  text-decoration: line-through;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.price-discounted {
+  color: var(--verde-esmeralda);
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.price-summary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--fonte-titulo);
+  margin-bottom: 1.5rem;
+}
+
+/* ====================================================
+   BOTÕES
+==================================================== */
+.btn-dark,
+.btn-buy,
+.planet-button {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  border-radius: var(--raio-arredondado);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  border: none;
+}
+
+.btn-dark {
+  padding: 0.6rem 1rem;
+  background-color: var(--azul-cosmico-1);
+  color: var(--branco-puro);
+}
+
+.btn-dark:hover {
+  background-color: var(--azul-celeste);
+  color: var(--preto-cosmico);
+}
+
+.btn-dark.disabled,
+.btn-dark.disabled:hover {
+  background-color: var(--cinza-claro);
+  color: var(--cinza-medio);
+  pointer-events: none;
+  cursor: default;
+}
+
+.btn-buy {
+  padding: 1rem 2.5rem;
+  background: var(--dourado-intenso);
+  color: var(--branco-puro);
+  box-shadow: 0 5px 15px rgba(217, 176, 49, 0.6);
+}
+
+.btn-buy:hover,
+.btn-buy:focus {
+  background: var(--verde-esmeralda);
+  box-shadow: 0 8px 25px var(--verde-esmeralda);
+  outline: none;
+}
+
+.planet-button {
+  padding: 1rem 2rem;
+  background-color: var(--azul-cosmico-1);
+  color: var(--branco-puro);
+}
+
+.planet-button:hover {
+  background-color: var(--azul-celeste);
+}
+
+/* ====================================================
+   CARTÕES DE SEÇÕES (para dividir conteúdos)
+==================================================== */
+.section-card {
+  background-color: var(--branco-puro);
+  border-radius: var(--raio-arredondado);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--sombra-suave);
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+.section-card p{
+  margin-bottom: 2rem;
+}
+
+.section-card strong{
+  color: var(--verde-esmeralda);
+  font-size: 1.6rem;
+}
+
+.section-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--azul-cosmico-1);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+
+.icon {
+  font-size: 1.6rem;
+}
+
+.content-list {
+  list-style-type: disc;
+  margin-left: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.course-image {
+  max-width: 100%;
+  border-radius: var(--raio-arredondado);
+  margin-top: 1rem;
+  box-shadow: var(--sombra-suave);
+}
+
+/* ====================================================
+   VÍDEO DEMONSTRATIVO
+==================================================== */
+.youtube-video iframe {
+  width: 100%;
+  height: 360px;
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+}
+
+/* ====================================================
+   DEPOIMENTOS (CARROSSEL SIMPLES)
+==================================================== */
+.testimonials-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-behavior: smooth;
+}
+
+.testimonial-item {
+  min-width: 250px;
+  background: var(--azul-cosmico-2);
+  color: var(--branco-puro);
+  border-radius: var(--raio-arredondado);
+  padding: 1rem;
+  box-shadow: var(--sombra-suave);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonial-img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+blockquote {
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+/* ====================================================
+   CALL TO ACTION CENTRALIZADO
+==================================================== */
+.cta-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  background-color: var(--dourado-intenso);
+  color: var(--preto-cosmico);
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #b9922c;
+  transform: translateY(-3px);
+}
+
+/* ====================================================
+   FAQ SIMPLES (toggle JS necessário para mostrar/esconder)
+==================================================== */
+.faq-list {
+  list-style: none;
+  padding: 0;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-weight: 700;
+  font-family: var(--fonte-titulo);
+  cursor: pointer;
+  padding: 0.5rem 0;
+  color: var(--azul-cosmico-1);
+}
+
+.faq-answer {
+  padding-left: 1rem;
+  color: var(--cinza-nebuloso);
+  margin-bottom: 1rem;
+  display: none; /* implementar toggle via JS */
+}
+
+/* ====================================================
+   RESPONSIVIDADE
+==================================================== */
+@media (max-width: 768px) {
+  .testimonials-carousel {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+  .testimonial-item {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .price-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price-discounted {
+    font-size: 1.75rem;
+  }
+
+  .btn-buy {
+    width: 100%;
+    padding: 1rem 0;
+  }
+}

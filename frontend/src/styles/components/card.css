@@ -1,0 +1,57 @@
+.card {
+  background-color: var(--branco-puro);
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+  text-align: center;
+  color: var(--preto-cosmico);
+  font-family: var(--font-texto);
+
+  /* Layout flexível para controlar conteúdo vertical */
+  display: flex;
+  flex-direction: column;
+
+  /* Responsividade */
+  width: 100%;
+  max-width: 320px;
+  height: auto; /* << ESSENCIAL para adaptar ao texto */
+
+  /* Quebra de palavras e layout seguro */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-family: var(--font-titulo);
+  margin-bottom: 0.5rem;
+  color: var(--azul-cosmico);
+  word-break: break-word;
+}
+
+.card-text {
+  color: var(--preto-cosmico);
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.card h3 {
+  font-family: var(--font-titulo);
+  color: var(--azul-cosmico);
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.card-link {
+  text-decoration: none;
+  max-width: 300px;
+  margin-top: auto; /* empurra o link para o fim do card */
+  flex-shrink: 0;
+}

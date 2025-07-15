@@ -1,0 +1,65 @@
+.catalog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  box-shadow: var(--sombra-suave);
+
+  justify-items: center; /* Alinha horizontalmente */
+  align-items: center;    /* Alinha os cards ao topo */
+}
+
+.catalog-container img {
+  height: 100px;
+  width: auto;
+  justify-self: center;
+}
+
+.catalog-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  transition: transform 0.2s ease;
+  text-align: center;
+
+  width: 100%;
+  max-width: 320px;
+  height: auto; /* Altura dinâmica, conforme conteúdo */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Conteúdo vai de cima para baixo */
+
+  word-break: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
+}
+
+.catalog-item:hover {
+  transform: scale(1.02);
+}
+
+.catalog-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+.catalog-description {
+  font-size: 1rem;
+  color: #555;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.catalog-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.catalog-card.disabled .catalog-card-content {
+  pointer-events: none;
+}

@@ -1,0 +1,130 @@
+/* Container global da página */
+.CoursesPageGlobalDiv {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: var(--fonte-texto);
+  color: var(--preto-cosmico);
+  background-color: var(--background-page);
+}
+
+/* Container interno da seção de cursos */
+.NousNovaCourses {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Seção do título */
+#title h1,
+#title h3 {
+  font-family: var(--fonte-titulo);
+  color: var(--dourado-intenso);
+  margin-bottom: 0.5rem;
+}
+
+/* Parágrafo introdutório */
+.NousNovaCourses > section p {
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+/* Subtítulo 'Galáxias' */
+h3 {
+  font-family: var(--fonte-titulo);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Container dos cards - usa grid responsivo */
+.catalog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cards já estilizados em card.css e catalog.css */
+
+/* Link que envolve o card para garantir estilo uniforme */
+.card-link {
+  text-decoration: none;
+}
+
+/* Botão “Explorar” com estilo escuro e full width */
+.btn-dark {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  color: var(--branco-puro);
+  background-color: var(--azul-cosmico-1);
+  border: none;
+}
+
+.btn-dark:hover {
+  background-color: var(--azul-celeste);
+  color: var(--preto-cosmico);
+  transform: translateY(-2px);
+}
+
+/* Seção final CTA */
+#cta {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+#cta p {
+  font-family: var(--fonte-titulo);
+  color: var(--dourado-intenso);
+  margin-bottom: 1rem;
+}
+
+/* Botão “Voltar para Início” */
+#cta .btn {
+  max-width: 200px;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--dourado-intenso);
+  color: var(--preto-cosmico);
+  font-weight: 700;
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#cta .btn:hover {
+  background-color: #b9922c;
+  transform: translateY(-2px);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  #title h1 {
+    font-size: 2.5rem;
+  }
+  #title h3 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .NousNovaCourses > section p {
+    font-size: 0.9rem;
+  }
+  .catalog-container {
+    grid-template-columns: 1fr;
+  }
+  #cta p {
+    font-size: 1rem;
+  }
+  #cta .btn {
+    width: 100%;
+    max-width: none;
+  }
+}

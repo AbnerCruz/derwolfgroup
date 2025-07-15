@@ -1,0 +1,78 @@
+/* ========== BUTTON - NOUS NOVA ========== */
+
+.btn {
+  background-color: var(--dourado-intenso);
+  color: var(--preto-cosmico);
+  font-family: var(--font-texto);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--raio-arredondado);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--sombra-suave);
+  display: block;
+  width: 100%;
+  margin: 0 auto 0;
+  text-align: center;
+}
+
+.btn:visited{
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #b9922c;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(0px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--dourado-intenso);
+  color: var(--dourado-intenso);
+}
+
+.btn-outline:hover {
+  background-color: var(--dourado-intenso);
+  color: var(--preto-cosmico);
+  cursor: pointer;
+}
+
+/* ========== Variação DARK ========== */
+
+.btn-dark {
+  background-color: var(--azul-cosmico-1);
+  color: var(--branco-puro);
+  font-family: var(--font-texto);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--raio-arredondado);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--sombra-suave);
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn-dark:visited{
+  text-decoration: none;
+}
+
+.btn-dark:hover {
+  background-color: var(--azul-celeste);
+  color: var(--preto-cosmico);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.btn-dark:active {
+  transform: translateY(0px);
+}

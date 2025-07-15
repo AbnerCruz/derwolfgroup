@@ -1,0 +1,207 @@
+/* ========== VARIÁVEIS DE LAYOUT ========== */
+/* Assuma que já estão no :root, como você enviou anteriormente */
+
+/* ========== LAYOUT GERAL ========== */
+.NousNovaLessons {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: var(--background-page);
+  font-family: var(--fonte-texto);
+  color: var(--preto-cosmico);
+}
+
+/* ========== TÍTULO DA PÁGINA ========== */
+.lesson-page-title h1 {
+  font-family: var(--fonte-titulo);
+  color: var(--preto-cosmico);
+  margin-bottom: 0.5rem;
+}
+
+.lesson-page-title h3 {
+  font-weight: 500;
+  color: var(--azul-cosmico-2);
+  margin: 0.25rem 0 1.5rem 0;
+}
+
+.lesson-page-title img {
+  max-width: 180px;
+  margin-top: 1rem;
+}
+
+/* ========== SEÇÕES DE CONTEÚDO ========== */
+.lesson-section {
+  margin-bottom: 3rem;
+  padding: 1rem 0;
+  font-family: var(--font-texto);
+}
+
+.lesson-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  font-family: var(--font-titulo);
+  color: var(--azul-cosmico-1);
+}
+
+.lesson-section p,
+.lesson-section li {
+  line-height: 1.8;
+  font-size: 1.25rem;
+  color: var(--texto-escuro);
+  margin-bottom: 1rem;
+}
+
+/* Estilo para listas */
+.lesson-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.lesson-section ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.lesson-section ul li::before {
+  content: "⟡";
+  position: absolute;
+  left: 0;
+  color: var(--dourado-intenso);
+  font-size: 1rem;
+  top: 0.15rem;
+}
+
+/* ========== PAGAMENTO ========== */
+.lesson-payment-section {
+  background-color: var(--azul-cosmico-1);
+  color: var(--branco-puro);
+  padding: 2rem;
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+}
+
+.lesson-payment-section h2 {
+  color: var(--dourado-intenso);
+  margin-bottom: 0.75rem;
+}
+
+.lesson-payment-section p {
+  margin-bottom: 1.25rem;
+}
+
+/* ========== BOTÃO EM PAGAMENTO ========== */
+.lesson-payment-section .btn:hover {
+  background-color: #b9922c;
+  transform: translateY(-2px);
+}
+
+/* ========== DEPOIMENTOS ========== */
+.depoimentos-nos {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background-color: var(--fundo-card);
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+}
+
+.depoimentos-nos h2 {
+  font-family: var(--fonte-titulo);
+  color: var(--dourado-intenso);
+  margin-bottom: 1.5rem;
+}
+
+/* Carrossel */
+.carousel-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+}
+
+.carousel-item {
+  min-width: 280px;
+  flex-shrink: 0;
+  background-color: var(--branco-puro);
+  border-radius: var(--raio-arredondado);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--sombra-suave);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.carousel-item:hover {
+  box-shadow: var(--sombra-intensa);
+}
+
+.carousel-item p {
+  font-style: italic;
+  color: var(--cinza-escuro);
+  margin: 0;
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.carousel-item strong {
+  display: block;
+  text-align: right;
+  color: var(--azul-cosmico-1);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.carousel-item img {
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  border-radius: var(--raio-arredondado);
+  margin-bottom: 0.75rem;
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 768px) {
+  .NousNovaLessons {
+    padding: 1rem;
+  }
+
+  .lesson-page-title h1 {
+    font-size: 2rem;
+  }
+
+  .lesson-page-title h3 {
+    font-size: 1rem;
+  }
+
+  .lesson-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .lesson-section p,
+  .lesson-section ul li {
+    font-size: 1.05rem;
+  }
+
+  .carousel-wrapper {
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .carousel-item {
+    min-width: 220px;
+    padding: 0.75rem 1rem;
+  }
+
+  .depoimentos-nos h2 {
+    font-size: 1.4rem;
+  }
+}

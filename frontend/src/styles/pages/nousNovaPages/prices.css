@@ -1,0 +1,317 @@
+/* ===== ESTRUTURA GERAL ===== */
+.PricesPage {
+  background-color: var(--fundo, var(--bege-classico));
+  color: var(--escuro, var(--preto-cosmico));
+  font-family: var(--fonte-texto, var(--font-texto));
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== CABEÇALHO ===== */
+.prices-header h1 {
+  font-family: var(--fonte-titulo, var(--font-titulo));
+  font-size: 2.5rem;
+  color: var(--escuro, var(--preto-cosmico));
+}
+
+.prices-header h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--azul-profundo, var(--azul-cosmico-1));
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== CATÁLOGO DE AULAS AVULSAS ===== */
+.catalog-container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-bottom: 3rem;
+}
+
+.catalog-card {
+  background-color: var(--branco, var(--branco-puro));
+  border-radius: var(--raio, var(--raio-arredondado));
+  box-shadow: var(--sombra, var(--sombra-suave));
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.catalog-card h3,
+.catalog-card h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--azul-profundo, var(--azul-cosmico-1));
+}
+
+.catalog-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.catalog-card ul li {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.planet-button {
+  background-color: var(--azul-profundo, var(--azul-cosmico-1));
+  color: var(--branco, var(--branco-puro));
+}
+
+/* ===== PLANOS AGRUPADOS ===== */
+.plans-section {
+  margin-top: 3rem;
+}
+
+.plan-groups {
+  display: grid;
+  gap: 2rem;
+}
+
+.plan-group {
+  border-left: 5px solid var(--dourado, var(--dourado-intenso));
+  padding: 1rem;
+  padding-top: 2%;
+  margin-bottom: 5%;
+  box-shadow: var(--sombra, var(--sombra-suave));
+}
+
+.plan-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: var(--azul-profundo, var(--azul-cosmico-1));
+  position: relative;
+}
+
+.recommended {
+  font-size: 0.85rem;
+  background: var(--dourado, var(--dourado-intenso));
+  color: var(--escuro, var(--preto-cosmico));
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-left: 0.75rem;
+  font-weight: bold;
+}
+
+/* ===== BENEFÍCIOS ===== */
+.benefits {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.benefits li {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ===== CHECKBOX DE DISCIPLINAS ===== */
+.discipline-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 1rem;
+  margin: 0.25rem 0;
+  border-top: 1px solid var(--cinza, var(--cinza-nebuloso));
+  padding: 0.5rem 0 1rem;
+}
+
+.discipline-label {
+  flex-shrink: 0; /* evita que o nome encolha */
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Checkbox estilizado */
+.discipline-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 2px solid var(--azul-profundo, #007BFF);
+  border-radius: 4px;
+  margin-right: 0.75rem;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease, border 0.2s ease;
+}
+
+.discipline-checkbox input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  opacity: 0;
+  transform: rotate(45deg);
+  transition: opacity 0.2s ease;
+}
+
+.discipline-checkbox input[type="checkbox"]:checked {
+  background-color: var(--azul-profundo, #007BFF);
+  border-color: var(--azul-profundo, #007BFF);
+}
+
+.discipline-checkbox input[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+
+/* ===== INPUT DE DISTRIBUIÇÃO DE AULAS ===== */
+.aula-distribution-input {
+  width: 60px;              /* largura suficiente para números pequenos */
+  padding: 4px 8px;         /* conforto ao digitar */
+  margin-left: 12px;        /* espaçamento da label */
+  font-size: 1rem;          /* tamanho de fonte ajustado para melhor visual */
+  border: 1.5px solid #ccc; /* borda neutra */
+  border-radius: 4px;       /* borda arredondada suave */
+  outline: none;            /* remove outline padrão */
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  text-align: center;       /* alinhamento numérico */
+  vertical-align: middle;   /* alinhamento com checkbox e texto */
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+/* Foco */
+.aula-distribution-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+  background-color: #f0f8ff;
+}
+
+/* ===== AUMENTO DOS BOTÕES NATIVOS DE INCREMENTO/DECREMENTO (SPINNERS) ===== */
+/* WebKit (Chrome, Edge, Safari) */
+.aula-distribution-input::-webkit-inner-spin-button,
+.aula-distribution-input::-webkit-outer-spin-button {
+  height: 28px;
+  width: 28px;
+  margin: 0 2px;
+}
+
+/* Firefox (os botões acompanham o font-size) */
+.aula-distribution-input[type=number] {
+  font-size: 1.1rem;
+}
+
+/* ===== FEEDBACK DE ERRO NO BOTÃO ===== */
+.flash-error {
+  animation: flash 0.5s linear;
+  background-color: #ffcccc !important;
+  color: #000 !important;
+}
+
+@keyframes flash {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.05); }
+  50% { transform: scale(0.97); }
+  75% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* ===== ERRO BOX ===== */
+.error-box {
+  background-color: #ffe6e6;
+  border: 1px solid #ff4d4d;
+  color: #b30000;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== AJUSTES PARA VALORES COM E SEM DESCONTO ===== */
+.total-mensal-box {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--azul-profundo, #004080);
+}
+
+.total-mensal-box strong {
+  flex-grow: 1;
+}
+
+.total-amount {
+  min-width: 110px;
+  text-align: right;
+  font-family: var(--fonte-numero, monospace);
+  color: var(--verde-desconto, #008000);
+}
+
+.total-mensal-box + .total-mensal-box {
+  margin-top: 0.25rem;
+  justify-content: flex-end;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--cinza-claro, #777);
+}
+
+/* ===== CHECKBOX DE AULA EM GRUPO ===== */
+.group-checkbox {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  font-size: 1rem;
+  gap: 0.5rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .PricesPage {
+    padding: 1rem;
+  }
+
+  .catalog-container,
+  .plan-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .discipline-checkbox {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 0;
+  }
+
+  .discipline-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-info {
+    align-items: flex-start;
+  }
+
+  .monthly-savings {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .monthly-savings span {
+    font-size: 1rem;
+  }
+
+}
