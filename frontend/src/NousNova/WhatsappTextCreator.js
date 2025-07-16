@@ -1,4 +1,5 @@
-const whatsappBaseURL = "https://wa.me/5518996181770";
+export const NousNovaContactURL = "https://wa.me/5518996181770";
+export const DomMaiorContactURL = "https://wa.me/5518997954628";
 
 const disciplinaLabels = {
   Matematica: "Matemática",
@@ -20,39 +21,59 @@ const planoLabels = {
 
 /**
  * Cria mensagem detalhada para WhatsApp
- * @param {string[]} selections - Array "Disciplina|planoId"
+ * @param {string[]} selections - Array no formato "Disciplina|planoId", ou "Disciplina|avulsa", ou "Disciplina|experimental"
  * @param {boolean} group - Aula em grupo
  * @param {object} distribution - { disciplinaLabel: quantidadeDeAulas }
  * @returns {string} URL completa para WhatsApp
  */
-function criarWhatsappLink(selections, group, distribution) {
-  if (!selections.length) return "";
 
-  // Extrair plano do primeiro item (assume que todos são do mesmo plano)
-  const [, planoId] = selections[0].split("|");
-  const planoNome = planoLabels[planoId] || planoId;
+function criarWhatsappLink(selections, group, distribution, baseURL = NousNovaContactURL) {
+  if (!selections?.length) return baseURL;
 
-  // Mapear disciplinas e quantidades usando o distribution
-  let disciplinasDetalhadas = selections.map(sel => {
-    const [disciplina] = sel.split("|");
+  const tiposEspeciais = ["avulsa", "experimental"];
+  const mensagens = [];
+
+  for (const sel of selections) {
+    const [disciplina, planoId] = sel.split("|");
     const nomeDisc = disciplinaLabels[disciplina] || disciplina;
-    const qtd = distribution[disciplina] || 0;
-    return `- ${nomeDisc}: ${qtd} aula(s) por mês`;
-  });
+    const qtd = distribution?.[disciplina] || 1;
 
-  // Remover duplicatas (caso haja)
-  disciplinasDetalhadas = [...new Set(disciplinasDetalhadas)];
+    if (tiposEspeciais.includes(planoId)) {
+      if (planoId === "avulsa") {
+        mensagens.push(`Gostaria de agendar uma aula **avulsa** de *${nomeDisc}* (${qtd} aula${qtd > 1 ? "s" : ""}).`);
+      }
+      if (planoId === "experimental") {
+        mensagens.push(`Gostaria de agendar uma **aula experimental** de *${nomeDisc}*.`);
+      }
+    } else {
+      const planoNome = planoLabels[planoId] || planoId;
+      let linha = `- ${nomeDisc}: ${qtd} aula(s) por mês`;
+      mensagens.push({ tipo: "plano", plano: planoNome, linha });
+    }
+  }
 
-  // Montar mensagem
-  let mensagem = `Olá, gostaria de contratar o seguinte plano:\n`;
-  mensagem += `${planoNome}\n`;
-  if (group) mensagem += `- Aula em grupo (com 5% de desconto extra)\n`;
-  mensagem += `Disciplinas e quantidade de aulas por mês:\n`;
-  mensagem += disciplinasDetalhadas.join("\n");
-  mensagem += `\n\nPor favor, me envie as informações para prosseguir com a contratação. Obrigado!`;
+  const planos = mensagens.filter(m => typeof m === "object");
+  const avulsasOuExp = mensagens.filter(m => typeof m === "string");
 
-  // Retornar URL com texto codificado
-  return `${whatsappBaseURL}?text=${encodeURIComponent(mensagem)}`;
+  let corpoMsg = "";
+
+  if (planos.length > 0) {
+    const planoNome = planos[0].plano;
+    corpoMsg += `Olá, gostaria de contratar o seguinte plano:\n`;
+    corpoMsg += `${planoNome}\n`;
+    if (group) corpoMsg += `- Aula em grupo (com 5% de desconto extra)\n`;
+    corpoMsg += `Disciplinas e quantidade de aulas por mês:\n`;
+    corpoMsg += planos.map(p => p.linha).join("\n");
+    corpoMsg += `\n`;
+  }
+
+  if (avulsasOuExp.length > 0) {
+    corpoMsg += avulsasOuExp.join("\n") + "\n";
+  }
+
+  corpoMsg += `\nPor favor, me envie as informações para prosseguir. Obrigado!`;
+
+  return `${baseURL}?text=${encodeURIComponent(corpoMsg)}`;
 }
 
 

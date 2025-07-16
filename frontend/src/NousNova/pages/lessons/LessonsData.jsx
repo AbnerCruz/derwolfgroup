@@ -1,4 +1,6 @@
 import { galaxyData } from "../courses/Math/GalaxyData";
+import { NousNovaContactURL } from "../../WhatsappTextCreator";
+import { DomMaiorContactURL } from "../../WhatsappTextCreator";
 // disciplinesList.js
 export const disciplinesList = {
   math: { key: "math", label: "Matemática" },
@@ -10,6 +12,7 @@ export const disciplinesList = {
   geography: { key: "geography", label: "Geografia" },
   philosophy: { key: "philosophy", label: "Filosofia" },
   sociology: { key: "sociology", label: "Sociologia" },
+  english: {key:"english", label:"Inglês"},
   music: { key: "music", label: "Música" },
   guitar: { key: "guitar", label: "Violão" },
   piano: { key: "piano", label: "Piano" },
@@ -27,6 +30,9 @@ const lessonsData = {
     description: "Desenvolva raciocínio lógico, confiança e autonomia com aulas que ensinam a pensar, não decorar. Seja para provas, concursos ou superação pessoal, nossa metodologia investiga, conecta e treina até que o aluno domine de verdade.",
     quote: "Aqui, até quem odeia matemática aprende. Não por fórmulas prontas, mas por compreensão real.",
     coord: "0,0,0",
+    fromNous: true,
+    contactURL: NousNovaContactURL,
+    courses: galaxyData.math,
 
     sections: [
       {
@@ -75,9 +81,8 @@ const lessonsData = {
       description: "Os horários são reservados mediante envio de comprovante. Confira os planos disponíveis e garanta sua vaga.",
       button: { label: "Planos", to: "/nousnova/private-lessons/prices" }
     },
-
-    courses: galaxyData.math
   },
+
   physics: {
     title: "Aulas Particulares de Física",
     price: 70,
@@ -86,6 +91,9 @@ const lessonsData = {
     description: "Transforme a Física em uma aliada do raciocínio, não em um obstáculo. Combinamos lógica, contexto histórico e aplicações reais para que o aluno compreenda profundamente os conceitos e consiga aplicá-los com confiança, seja na escola ou em provas desafiadoras.",
     quote: "A Física não é um bicho-papão. Quando compreendida, ela revela a beleza invisível do universo.",
     coord: "0,0,0",
+    fromNous: true,
+    contactURL: NousNovaContactURL,
+    courses: galaxyData.physics,
 
     sections: [
       {
@@ -136,31 +144,135 @@ const lessonsData = {
       description: "Garanta sua vaga com antecedência. A agenda é limitada para garantir acompanhamento de qualidade. Clique abaixo para ver os planos disponíveis.",
       button: { label: "Planos", to: "/nousnova/private-lessons/prices" }
     },
+  },
 
-    courses: galaxyData.physics
+  piano: {
+    title: "Aulas Particulares de Piano",
+    price: 75,
+    subtitle: "Desperte sua musicalidade com o piano",
+    discipline: disciplinesList.piano.label,
+    description: "As aulas de piano combinam técnica, sensibilidade e teoria musical de forma integrada. Seja você iniciante ou já experiente, aqui desenvolvemos leitura, coordenação, percepção e repertório com acompanhamento próximo e adaptação ao seu ritmo.",
+    quote: "Não se trata apenas de tocar notas — trata-se de comunicar emoção, dominar linguagem e moldar o tempo com as próprias mãos.",
+    coord: "0,0,0",
+    fromNous: false,
+    contactURL: DomMaiorContactURL,
+    courses: galaxyData.piano,
+
+
+    sections: [
+      {
+        title: "Sobre as Aulas",
+        content: "Nossas aulas de piano são planejadas para formar músicos completos: leitura, técnica, percepção auditiva e expressão artística são desenvolvidas de forma integrada. Respeitamos o tempo e os objetivos de cada aluno — seja o sonho de tocar músicas favoritas, ingressar em um conservatório ou simplesmente aprender por prazer, o caminho será estruturado, progressivo e prazeroso. O aluno não apenas repete, mas entende o que está tocando.",
+      },
+      {
+        title: "Metodologia",
+        content: [
+          "Aprendizado gradual, adaptado ao nível e à idade do aluno: do iniciante absoluto ao pianista intermediário ou avançado.",
+          "Integração entre teoria e prática desde as primeiras aulas: leitura de partitura, harmonia, percepção e técnica são ensinadas de forma conectada.",
+          "Material didático selecionado com base no perfil e nos objetivos do aluno: métodos clássicos, repertórios modernos, peças populares e eruditas.",
+          "Uso de tecnologia, gravações e exercícios auditivos para desenvolver precisão rítmica e afinação.",
+          "A primeira aula é experimental. Na aula diagnóstica, avaliamos o conhecimento prévio, habilidades motoras e preferências musicais, traçando um plano personalizado de estudos.",
+        ]
+      },
+      {
+        title: "Objetivos Personalizados",
+        content: [
+          "Tocar piano por prazer, lazer ou desenvolvimento pessoal.",
+          "Aprender a ler partituras e compreender a linguagem musical.",
+          "Preparar-se para provas de aptidão musical, conservatórios ou universidades.",
+          "Dominar técnica pianística: escalas, arpejos, acordes, independência das mãos.",
+          "Aprimorar percepção auditiva, improvisação e interpretação musical.",
+        ]
+      },
+      {
+        title: "Por quê estudar?",
+        content: [
+          "O piano é um dos instrumentos mais completos e formativos: desenvolve coordenação, concentração, disciplina e sensibilidade.",
+          "Serve como base sólida para músicos de qualquer instrumento, compositores, maestros ou arranjadores.",
+          "Estimula o cérebro de forma integral: memória, lógica, criatividade e controle emocional.",
+          "Permite tocar uma infinidade de repertórios: clássico, popular, gospel, trilhas sonoras, jazz, MPB, entre outros.",
+        ]
+      },
+      {
+        title: "Modalidades e Agendamento",
+        content: [
+          "Aulas presenciais (recomendadas para iniciantes e crianças) ou remotas (com câmera adequada para acompanhamento técnico).",
+          "Individuais ou em pequenos grupos, com cronograma flexível conforme disponibilidade do aluno e professor.",
+          "Plano inicial inclui aula diagnóstica para definir o nível técnico, repertório ideal e metas realistas.",
+          "Opção de plano contínuo ou módulos específicos (como introdução à improvisação, harmonia funcional, preparação para provas etc.).",
+        ]
+      }
+    ],
+
+    callToAction: {
+      description: "O estudo de piano exige constância e acompanhamento. Garanta sua vaga e comece seu desenvolvimento musical com excelência.",
+      button: { label: "Planos", to: "/nousnova/private-lessons/prices" }
+    },
+  },
+
+  keyboard: {
+    title: "Aulas Particulares de Teclado",
+    price: 70,
+    subtitle: "Aprenda teclado com método prático e musical",
+    discipline: disciplinesList.keyboard.label,
+    description: "As aulas de teclado são voltadas para desenvolver autonomia musical desde o início. Com foco prático e dinâmico, unimos teoria, repertório, coordenação e criatividade em um processo adaptado ao seu perfil.",
+    quote: "O teclado é uma porta de entrada acessível e poderosa para o universo da música moderna.",
+    coord: "0,0,0",
+    fromNous: false,
+    contactURL: DomMaiorContactURL,
+    courses: galaxyData.keyboard,
+
+    sections: [
+      {
+        title: "Sobre as Aulas",
+        content: "O teclado permite resultados rápidos e versatilidade. Nas aulas, o aluno aprende desde os fundamentos musicais até a execução de músicas populares, trilhas, louvores ou repertórios personalizados. Trabalhamos com leitura básica, cifras, percepção auditiva e acompanhamento harmônico, tudo de forma aplicada. O foco é tornar o aluno capaz de tocar com independência e prazer.",
+      },
+      {
+        title: "Metodologia",
+        content: [
+          "Aulas práticas desde o primeiro encontro, com aprendizado por meio de músicas reais e objetivos definidos.",
+          "Introdução progressiva à teoria musical (notas, acordes, escalas, ritmo) sem excesso de abstração.",
+          "Ensino de cifras, leitura de pauta simplificada, harmonia funcional e desenvolvimento da mão esquerda para acompanhamento.",
+          "Uso de tecnologia: aplicativos de apoio, playback, metrônomo e gravações para treino e autoavaliação.",
+          "A primeira aula é experimental. Na aula diagnóstica, mapeamos o perfil e definimos o plano de estudo: repertório, nível técnico e metas.",
+        ]
+      },
+      {
+        title: "Objetivos Personalizados",
+        content: [
+          "Aprender teclado por lazer ou como instrumento de apoio para composição e canto.",
+          "Tocar músicas populares, gospel, sertanejo, MPB, trilhas e outros estilos com segurança.",
+          "Compreender os fundamentos de harmonia, escalas e formação de acordes para improvisação e arranjo.",
+          "Desenvolver independência rítmica e coordenação motora.",
+          "Se preparar para tocar em igrejas, bandas ou eventos sociais.",
+        ]
+      },
+      {
+        title: "Por quê estudar?",
+        content: [
+          "O teclado é acessível e versátil: ideal para iniciantes, músicos autodidatas e apoio em bandas.",
+          "Permite tocar com acompanhamento harmônico completo, ideal para quem canta ou compõe.",
+          "Desenvolve noções de ritmo, percepção e estrutura musical de forma aplicada.",
+          "É uma ponte para aprofundamentos futuros: piano, harmonia funcional, produção musical etc.",
+        ]
+      },
+      {
+        title: "Modalidades e Agendamento",
+        content: [
+          "Aulas presenciais ou remotas, com foco em acompanhamento próximo e metas práticas.",
+          "Individuais ou em grupos pequenos, com turmas organizadas por faixa etária ou objetivo.",
+          "A aula diagnóstica traça o plano personalizado: repertório, técnica, leitura e objetivos.",
+          "Planos contínuos ou módulos por temas (ex: teclado gospel, pop, teoria básica, etc.).",
+        ]
+      }
+    ],
+
+    callToAction: {
+      description: "Quer aprender teclado de verdade? Reserve sua vaga, agende a aula experimental e descubra seu potencial musical.",
+      button: { label: "Planos", to: "/nousnova/private-lessons/prices" }
+    },
   },
 
 };
 
 export default lessonsData;
-
-// model:{
-//   title:"",
-//   price: 0,
-//   subtitle: "",
-//   discipline: "Química",
-//   description: "",
-//   quote: "",
-//   sections: [
-//     {
-//       title: "",
-//       content: "",
-//     },
-//   ],
-//   callToAction: {
-//     description: "",
-//     button: {label: "Planos", to: "/nousnova/private-lessons/prices"}
-//   },
-//   coord: "0,0,0",
-// },
-

@@ -1,0 +1,57 @@
+.plan-group-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--espacamento-md);
+  margin-bottom: var(--espacamento-md);
+}
+
+.plan-group-navigation button {
+  background-color: var(--azul-cosmico-1);
+  color: var(--branco-puro);
+  border-radius: var(--raio-arredondado);
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  box-shadow: var(--sombra-suave);
+}
+
+.plan-group-navigation button:hover {
+  background-color: var(--dourado-intenso);
+  color: var(--preto-cosmico);
+}
+
+.plan-group-indicator {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--azul-cosmico-1);
+}
+
+/* Caixa de erro com animação suave */
+.error-box {
+  background-color: #ffe5e5;
+  color: var(--vermelho-alaranjado);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--vermelho-alaranjado);
+  border-radius: var(--raio-arredondado);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+  max-width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-error {
+  animation: fadeIn 0.3s ease-in-out;
+}

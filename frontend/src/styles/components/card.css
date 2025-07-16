@@ -12,15 +12,13 @@
   display: flex;
   flex-direction: column;
 
-  /* Responsividade */
-  width: 100%;
-  max-width: 320px;
-  height: auto; /* << ESSENCIAL para adaptar ao texto */
-
   /* Quebra de palavras e layout seguro */
   word-wrap: break-word;
   overflow-wrap: break-word;
   box-sizing: border-box;
+
+  justify-content: space-between;
+  margin: var(--espacamento-md) 0;
 }
 
 
@@ -45,8 +43,9 @@
 .card h3 {
   font-family: var(--font-titulo);
   color: var(--azul-cosmico);
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem;
   word-break: break-word;
+
 }
 
 .card-link {

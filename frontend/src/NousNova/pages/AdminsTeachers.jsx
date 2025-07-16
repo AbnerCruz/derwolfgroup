@@ -49,6 +49,7 @@ function AdminTeachers() {
   const [disciplines, setDisciplines] = useState([]);
   const [instagram, setInstagram] = useState("");
   const [editingId, setEditingId] = useState(null);
+  const [availabilities, setAvailabilities] = useState([]);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/teachers`)
@@ -68,6 +69,7 @@ function AdminTeachers() {
     setImage(null);
     setDisciplines([]);
     setInstagram("");
+    setAvailabilities([])
     setEditingId(null);
   }
 
@@ -80,6 +82,8 @@ function AdminTeachers() {
     if (image) formData.append("image", image); // não obrigatória em edição
     formData.append("disciplines", JSON.stringify(disciplines));
     formData.append("instagram", instagram);
+    formData.append("availability", JSON.stringify(availabilities));
+
 
     if (editingId) {
       // Atualização
@@ -133,6 +137,36 @@ function AdminTeachers() {
     }
     setImage(null); // opcional trocar imagem
     setEditingId(teacher.id);
+
+    fetch(`${process.env.REACT_APP_API_URL}/teacher/${teacher.id}/availability`)
+      .then(res => {
+        if (!res.ok) throw new Error("Erro ao buscar horários");
+        return res.json();
+      })
+      .then(slots => {
+        const formatted = slots.map(slot => ({
+          weekday: slot.weekday,
+          startTime: slot.startTime,
+          endTime: slot.endTime,
+        }))
+        setAvailabilities(formatted);
+      })
+      .catch(() => setAvailabilities([]));
+  }
+
+
+  function addAvailability() {
+    setAvailabilities(prev => [...prev, { weekday: 0, startTime: "08:00", endTime: "18:00"}]);
+  }
+
+  function updateAvailability(index, field, value) {
+    setAvailabilities(prev =>
+      prev.map((a, i) => (i === index ? { ...a, [field]: value } : a))
+    );
+  }
+
+  function removeAvailability(index) {
+    setAvailabilities(prev => prev.filter((_, i) => i !== index));
   }
 
   return (
@@ -163,6 +197,18 @@ function AdminTeachers() {
           />
         </div>
 
+        <div>
+          <h3>Instagram</h3>
+          <input
+            type="text"
+            className="input-instagram"
+            value={instagram}
+            onChange={(e) => setInstagram(e.target.value)}
+            placeholder="Link do Instagram"
+            required
+          />
+        </div>
+
         <fieldset className="disciplines-fieldset">
           <legend>Selecione as disciplinas:</legend>
           <div className="disciplines-checkboxes">
@@ -177,14 +223,27 @@ function AdminTeachers() {
           </div>
         </fieldset>
 
-        <input
-          type="text"
-          className="input-instagram"
-          value={instagram}
-          onChange={(e) => setInstagram(e.target.value)}
-          placeholder="Link do Instagram"
-          required
-        />
+        <div className="availability-section">
+          <h3>Disponibilidade Horária</h3>
+          <button type="button" onClick={addAvailability}>Adicionar Horário</button>
+          {availabilities.map((slot, index) => (
+            <div key={index} className="availability-item">
+              <select value={slot.weekday} onChange={e => updateAvailability(index, "weekday", parseInt(e.target.value))}>
+                <option value={0}>Domingo</option>
+                <option value={1}>Segunda</option>
+                <option value={2}>Terça</option>
+                <option value={3}>Quarta</option>
+                <option value={4}>Quinta</option>
+                <option value={5}>Sexta</option>
+                <option value={6}>Sábado</option>
+              </select>
+
+              <input type="time" value={slot.startTime} onChange={e => updateAvailability(index, "startTime", e.target.value)} />
+              <input type="time" value={slot.endTime} onChange={e => updateAvailability(index, "endTime", e.target.value)} />
+              <button type="button" onClick={() => removeAvailability(index)}>Remover</button>
+            </div>
+          ))}
+        </div>
 
         <div className="form-buttons">
           <button type="submit" className="btn-add-teacher">

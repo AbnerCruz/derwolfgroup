@@ -36,42 +36,6 @@ h3 {
   margin-bottom: 1rem;
 }
 
-/* Container dos cards - usa grid responsivo */
-.catalog-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-/* Cards já estilizados em card.css e catalog.css */
-
-/* Link que envolve o card para garantir estilo uniforme */
-.card-link {
-  text-decoration: none;
-}
-
-/* Botão “Explorar” com estilo escuro e full width */
-.btn-dark {
-  width: 100%;
-  text-align: center;
-  display: inline-block;
-  font-weight: 700;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--raio-arredondado);
-  box-shadow: var(--sombra-suave);
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  color: var(--branco-puro);
-  background-color: var(--azul-cosmico-1);
-  border: none;
-}
-
-.btn-dark:hover {
-  background-color: var(--azul-celeste);
-  color: var(--preto-cosmico);
-  transform: translateY(-2px);
-}
-
 /* Seção final CTA */
 #cta {
   margin-top: 3rem;

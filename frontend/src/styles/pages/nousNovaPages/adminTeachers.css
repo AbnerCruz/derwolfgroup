@@ -14,7 +14,7 @@
   text-align: center;
 }
 
-/* FORMULÁRIO PRINCIPAL */
+/* === FORMULÁRIO PRINCIPAL === */
 .admin-teachers-form {
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@
   background-color: var(--branco-puro);
 }
 
-/* CHECKBOXES DE DISCIPLINAS */
+/* === CHECKBOXES DE DISCIPLINAS === */
 .disciplines-fieldset {
   border: 1px solid var(--cinza-nebuloso);
   border-radius: var(--raio-arredondado);
@@ -76,7 +76,7 @@
   accent-color: var(--azul-cosmico-1);
 }
 
-/* BOTÕES PRINCIPAIS */
+/* === BOTÕES PRINCIPAIS === */
 .btn-add-teacher,
 .btn-cancel-edit {
   padding: 0.75rem 1.5rem;
@@ -111,7 +111,7 @@
   flex-wrap: wrap;
 }
 
-/* LISTAGEM DE PROFESSORES */
+/* === LISTAGEM DE PROFESSORES === */
 .teachers-list {
   list-style: none;
   padding: 0;
@@ -129,7 +129,7 @@
   font-size: 1rem;
 }
 
-/* BOTÕES DE AÇÃO */
+/* === BOTÕES DE AÇÃO === */
 .edit-button,
 .remove-button {
   border: none;
@@ -159,7 +159,90 @@
   background-color: #a93226;
 }
 
-/* RESPONSIVIDADE */
+/* === DISPONIBILIDADE HORÁRIA === */
+.availability-section {
+  border: 1px solid var(--cinza-nebuloso);
+  border-radius: var(--raio-arredondado);
+  padding: 1.5rem;
+  background-color: var(--branco-puro);
+  margin-top: 1rem;
+  max-height: 400px; /* altura máxima visível */
+  overflow-y: auto;  /* ativa o scroll */
+}
+
+.availability-section h3 {
+  color: var(--azul-cosmico-1);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.availability-section button {
+  background-color: var(--verde-positivo, #28a745);
+  color: var(--branco-puro);
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio-arredondado);
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s;
+}
+
+.availability-section button:hover {
+  background-color: #218838;
+}
+
+.availability-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: var(--raio-arredondado);
+  background-color: var(--bege-classico);
+  box-shadow: var(--sombra-suave);
+}
+
+.availability-item select,
+.availability-item input[type="time"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--cinza-nebuloso);
+  border-radius: 4px;
+  background-color: var(--branco-puro);
+}
+
+.availability-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.availability-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--azul-cosmico-1);
+}
+
+.availability-item button {
+  background-color: var(--vermelho-alaranjado);
+  color: var(--branco-puro);
+  padding: 0.4rem 0.8rem;
+  margin: 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  align-self: center;
+}
+
+.availability-item button:hover {
+  background-color: #a93226;
+}
+
+/* === RESPONSIVIDADE === */
 @media (max-width: 600px) {
   .admin-teachers-form {
     padding: 1rem;
@@ -182,5 +265,19 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+  }
+
+  .availability-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .availability-item select,
+  .availability-item input[type="time"] {
+    width: 100%;
+  }
+
+  .availability-section button {
+    width: 100%;
   }
 }

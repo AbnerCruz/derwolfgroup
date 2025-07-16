@@ -9,7 +9,6 @@ html, body {
   height: 100%;
   font-family: var(--font-texto, sans-serif);
   background-color: var(--background-page);
-  color: var(--branco-puro);
   scroll-behavior: smooth;
 }
 

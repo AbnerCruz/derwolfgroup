@@ -1,5 +1,7 @@
 import sequelize from "./db.js";
 import Teacher from "./models/Teacher.js";
+import TeacherAvailability from "./models/TeacherAvailability.js";
+import Reservation from "./models/Reservation.js";
 import dotenv from "dotenv"
 dotenv.config();
 
@@ -13,12 +15,6 @@ dotenv.config();
       disciplines: JSON.stringify(["Matemática"]),
       instagram: "https://www.instagram.com/nous.prof_abner/"
     },
-    {
-      name: "Renata Nóbrega",
-      image: "/teachers/RenataNobrega.png",
-      disciplines: JSON.stringify(["Música", "Piano", "Teclado", "Violino", "Violão"]),
-      instagram: "https://www.instagram.com/musicistare/"
-    }
   ]);
 
   console.log("Professores inseridos com sucesso!");

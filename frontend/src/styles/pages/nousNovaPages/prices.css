@@ -1,8 +1,8 @@
 /* ===== ESTRUTURA GERAL ===== */
 .PricesPage {
-  background-color: var(--fundo, var(--bege-classico));
-  color: var(--escuro, var(--preto-cosmico));
-  font-family: var(--fonte-texto, var(--font-texto));
+  background-color: var(--background-page);
+  color: var(--texto-escuro);
+  font-family: var(--fonte-texto);
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -10,17 +10,39 @@
 
 /* ===== CABEÇALHO ===== */
 .prices-header h1 {
-  font-family: var(--fonte-titulo, var(--font-titulo));
+  font-family: var(--fonte-titulo);
   font-size: 2.5rem;
-  color: var(--escuro, var(--preto-cosmico));
+  color: var(--texto-escuro);
 }
 
 .prices-header h3 {
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--azul-profundo, var(--azul-cosmico-1));
-  margin-top: 0.5rem;
+  color: var(--azul-cosmico-1);
+  margin: 0.5rem 0 2rem;
+}
+
+/* ===== TABS ===== */
+.tab-selector {
+  display: flex;
+  gap: var(--espacamento-md);
   margin-bottom: 2rem;
+}
+
+.tab-selector button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: var(--cinza-nebuloso);
+  border: none;
+  border-radius: var(--raio-arredondado);
+  transition: background-color 0.25s ease;
+}
+
+.tab-selector button.active,
+.tab-selector button:hover {
+  background-color: var(--azul-cosmico-1);
+  color: var(--branco-puro);
 }
 
 /* ===== CATÁLOGO DE AULAS AVULSAS ===== */
@@ -31,38 +53,27 @@
   margin-bottom: 3rem;
 }
 
-.catalog-card {
-  background-color: var(--branco, var(--branco-puro));
-  border-radius: var(--raio, var(--raio-arredondado));
-  box-shadow: var(--sombra, var(--sombra-suave));
+.prices-card {
+  background-color: var(--branco-puro);
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 1%;
+  margin: var(--espacamento-md) 0;
 }
 
-.catalog-card h3,
-.catalog-card h4 {
+.prices-card h3,
+.prices-card h4 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
-  color: var(--azul-profundo, var(--azul-cosmico-1));
+  color: var(--azul-cosmico-1);
 }
 
-.catalog-card ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 1rem;
-}
-
-.catalog-card ul li {
+.prices-card ul li {
   font-size: 1rem;
   margin-bottom: 0.25rem;
-}
-
-.planet-button {
-  background-color: var(--azul-profundo, var(--azul-cosmico-1));
-  color: var(--branco, var(--branco-puro));
 }
 
 /* ===== PLANOS AGRUPADOS ===== */
@@ -70,32 +81,26 @@
   margin-top: 3rem;
 }
 
-.plan-groups {
-  display: grid;
-  gap: 2rem;
-}
-
 .plan-group {
-  border-left: 5px solid var(--dourado, var(--dourado-intenso));
+  border-left: 5px solid var(--dourado-intenso);
   padding: 1rem;
-  padding-top: 2%;
   margin-bottom: 5%;
-  box-shadow: var(--sombra, var(--sombra-suave));
+  box-shadow: var(--sombra-suave);
 }
 
 .plan-title {
   font-size: 1.6rem;
   margin-bottom: 0.5rem;
-  color: var(--azul-profundo, var(--azul-cosmico-1));
+  color: var(--azul-cosmico-1);
   position: relative;
 }
 
 .recommended {
   font-size: 0.85rem;
-  background: var(--dourado, var(--dourado-intenso));
-  color: var(--escuro, var(--preto-cosmico));
+  background-color: var(--dourado-intenso);
+  color: var(--preto-cosmico);
   padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  border-radius: var(--raio-arredondado);
   margin-left: 0.75rem;
   font-weight: bold;
 }
@@ -115,28 +120,25 @@
 .discipline-checkbox {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 1rem;
   font-size: 1rem;
   margin: 0.25rem 0;
-  border-top: 1px solid var(--cinza, var(--cinza-nebuloso));
+  border-top: 1px solid var(--cinza-nebuloso);
   padding: 0.5rem 0 1rem;
 }
 
 .discipline-label {
-  flex-shrink: 0; /* evita que o nome encolha */
+  flex-shrink: 0;
   font-weight: bold;
   white-space: nowrap;
 }
 
-/* Checkbox estilizado */
+/* Checkbox */
 .discipline-checkbox input[type="checkbox"] {
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   width: 1.1rem;
   height: 1.1rem;
-  border: 2px solid var(--azul-profundo, #007BFF);
+  border: 2px solid var(--azul-cosmico-1);
   border-radius: 4px;
   margin-right: 0.75rem;
   cursor: pointer;
@@ -151,7 +153,7 @@
   left: 4px;
   width: 4px;
   height: 8px;
-  border: solid white;
+  border: solid var(--branco-puro);
   border-width: 0 2px 2px 0;
   opacity: 0;
   transform: rotate(45deg);
@@ -159,8 +161,8 @@
 }
 
 .discipline-checkbox input[type="checkbox"]:checked {
-  background-color: var(--azul-profundo, #007BFF);
-  border-color: var(--azul-profundo, #007BFF);
+  background-color: var(--azul-cosmico-1);
+  border-color: var(--azul-cosmico-1);
 }
 
 .discipline-checkbox input[type="checkbox"]:checked::before {
@@ -169,103 +171,51 @@
 
 /* ===== INPUT DE DISTRIBUIÇÃO DE AULAS ===== */
 .aula-distribution-input {
-  width: 60px;              /* largura suficiente para números pequenos */
-  padding: 4px 8px;         /* conforto ao digitar */
-  margin-left: 12px;        /* espaçamento da label */
-  font-size: 1rem;          /* tamanho de fonte ajustado para melhor visual */
-  border: 1.5px solid #ccc; /* borda neutra */
-  border-radius: 4px;       /* borda arredondada suave */
-  outline: none;            /* remove outline padrão */
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  text-align: center;       /* alinhamento numérico */
-  vertical-align: middle;   /* alinhamento com checkbox e texto */
-  background-color: #fff;
-  box-sizing: border-box;
+  width: 60px;
+  padding: 4px 8px;
+  margin-left: 12px;
+  font-size: 1rem;
+  border: 1.5px solid var(--cinza-nebuloso);
+  border-radius: var(--raio-arredondado);
+  text-align: center;
+  background-color: var(--branco-puro);
 }
 
-/* Foco */
 .aula-distribution-input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+  border-color: var(--azul-cosmico-1);
+  box-shadow: 0 0 6px rgba(27, 31, 59, 0.4);
   background-color: #f0f8ff;
-}
-
-/* ===== AUMENTO DOS BOTÕES NATIVOS DE INCREMENTO/DECREMENTO (SPINNERS) ===== */
-/* WebKit (Chrome, Edge, Safari) */
-.aula-distribution-input::-webkit-inner-spin-button,
-.aula-distribution-input::-webkit-outer-spin-button {
-  height: 28px;
-  width: 28px;
-  margin: 0 2px;
-}
-
-/* Firefox (os botões acompanham o font-size) */
-.aula-distribution-input[type=number] {
-  font-size: 1.1rem;
-}
-
-/* ===== FEEDBACK DE ERRO NO BOTÃO ===== */
-.flash-error {
-  animation: flash 0.5s linear;
-  background-color: #ffcccc !important;
-  color: #000 !important;
-}
-
-@keyframes flash {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.05); }
-  50% { transform: scale(0.97); }
-  75% { transform: scale(1.03); }
-  100% { transform: scale(1); }
 }
 
 /* ===== ERRO BOX ===== */
 .error-box {
   background-color: #ffe6e6;
-  border: 1px solid #ff4d4d;
-  color: #b30000;
+  border: 1px solid var(--vermelho-alaranjado);
+  color: var(--vermelho-alaranjado);
   padding: 0.75rem 1rem;
-  border-radius: 8px;
+  border-radius: var(--raio-arredondado);
   margin-top: 0.5rem;
   font-size: 0.95rem;
   animation: fadeIn 0.3s ease-in-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== AJUSTES PARA VALORES COM E SEM DESCONTO ===== */
+/* ===== VALORES COM E SEM DESCONTO ===== */
 .total-mensal-box {
   margin-top: 1rem;
   display: flex;
   justify-content: space-between;
   font-weight: 600;
   font-size: 1.5rem;
-  color: var(--azul-profundo, #004080);
-}
-
-.total-mensal-box strong {
-  flex-grow: 1;
+  color: var(--azul-cosmico-1);
 }
 
 .total-amount {
-  min-width: 110px;
   text-align: right;
   font-family: var(--fonte-numero, monospace);
-  color: var(--verde-desconto, #008000);
+  color: var(--verde-esmeralda);
 }
 
-.total-mensal-box + .total-mensal-box {
-  margin-top: 0.25rem;
-  justify-content: flex-end;
-  font-weight: 400;
-  font-size: 0.85rem;
-  color: var(--cinza-claro, #777);
-}
-
-/* ===== CHECKBOX DE AULA EM GRUPO ===== */
+/* ===== OUTROS ===== */
 .group-checkbox {
   display: flex;
   align-items: center;
@@ -274,13 +224,35 @@
   gap: 0.5rem;
 }
 
-/* ===== RESPONSIVO ===== */
+.discipline-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.price-per-hour {
+  font-weight: bold;
+  font-family: var(--fonte-numero, monospace);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.observacao-partner {
+  font-size: 0.8rem;
+  color: var(--vermelho-alaranjado);
+  margin: 0 10px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
   .PricesPage {
     padding: 1rem;
   }
 
-  .catalog-container,
   .plan-groups {
     grid-template-columns: 1fr;
   }
@@ -292,26 +264,15 @@
   }
 
   .discipline-label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 100%;
+    justify-content: space-between;
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
+}
 
-  .price-info {
-    align-items: flex-start;
-  }
-
-  .monthly-savings {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.2rem;
-  }
-
-  .monthly-savings span {
-    font-size: 1rem;
-  }
-
+.singleClass-buttons{
+  width: 100%;
+  display: flex;
+  gap: 3rem;
 }
