@@ -1,10 +1,17 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../db.js";
-import Teacher from "./Teacher.js";
 
 const Reservation = sequelize.define("Reservation", {
   teacherId: {
     type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  contractorName:{
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  contractorEmail: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
   studentName: {
@@ -15,8 +22,12 @@ const Reservation = sequelize.define("Reservation", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  date: {
-    type: DataTypes.DATEONLY, // "2025-07-15"
+  weekIndex: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  weekday: {
+    type: DataTypes.INTEGER, // 0 = domingo, ... 6 = sábado
     allowNull: false,
   },
   startTime: {
@@ -27,9 +38,9 @@ const Reservation = sequelize.define("Reservation", {
     type: DataTypes.TIME,
     allowNull: false,
   },
-  isGroup: {
-    type: DataTypes.BOOLEAN,
-    defaultValue: false,
+  whatsappNumber: {
+    type: DataTypes.STRING(15),
+    allowNull: false,
   },
   status: {
     type: DataTypes.ENUM("pending", "confirmed", "cancelled"),
@@ -38,3 +49,4 @@ const Reservation = sequelize.define("Reservation", {
 });
 
 export default Reservation;
+

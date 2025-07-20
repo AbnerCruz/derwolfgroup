@@ -1,12 +1,14 @@
 import express from "express";
 import cors from "cors";
 import multer from "multer";
-import path from "path";
 import dotenv from "dotenv";
 import sequelize from "./db.js";
 import Teacher from "./models/Teacher.js";
 import Reservation from "./models/Reservation.js";
 import TeacherAvailability from "./models/TeacherAvailability.js";
+import generateDateForWeek from "./GenerateDateForWeek.js";
+import { weekdayToName } from "./GenerateDateForWeek.js";
+import { Op } from "sequelize";
 
 
 
@@ -39,6 +41,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 Teacher.hasMany(TeacherAvailability, {
+  foreignKey: "teacherId",
+  onDelete: "CASCADE",
+  hooks: true,
+})
+
+Teacher.hasMany(Reservation, {
   foreignKey: "teacherId",
   onDelete: "CASCADE",
   hooks: true,
@@ -96,6 +104,33 @@ app.get("/teachers", async (req, res) => {
   const teachers = await Teacher.findAll();
   res.json(teachers);
 });
+
+app.get("/teachers/:discipline", async (req, res) => {
+  const { discipline } = req.params;
+
+  try {
+    const allTeachers = await Teacher.findAll();
+
+    const filtered = allTeachers.filter(teacher => {
+      let list;
+
+      try {
+        list = JSON.parse(teacher.disciplines);
+      } catch {
+        list = [];
+      }
+
+      return Array.isArray(list) && list.map(d => d.toLowerCase()).includes(discipline.toLowerCase());
+    });
+
+    res.json(filtered);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Erro ao buscar professores." });
+  }
+});
+
+
 
 // Rota para remover professor
 app.delete("/admin/teachers/:id", async (req, res) => {
@@ -191,10 +226,10 @@ app.post("/teacher/:id/availability", async (req, res) =>{
 // (query ?date=YYYY-MM-DD)
 app.get("/teacher/:id/reservations", async (req, res)=>{
   const {id} = req.params;
-  const {date} = req.query;
+  const {weekday} = req.query;
   try{
     const where = {teacherId:id}
-    if(date) where.date = date;
+    if(weekday !== undefined) where.weekday = weekday;
     const reservations = await Reservation.findAll({where})
     res.json(reservations)
   } catch(err){
@@ -203,26 +238,179 @@ app.get("/teacher/:id/reservations", async (req, res)=>{
   }
 })
 
+app.get("/reservations/:discipline", async (req, res) => {
+  const { discipline } = req.params;
+
+  try {
+    const reservations = await Reservation.findAll({
+      where: {
+        discipline: {
+          [Op.like]: `%${discipline}%`
+        }
+      },
+      include: [{
+        model: Teacher,
+        attributes: ["id", "name"]
+      }]
+    });
+
+    res.json(reservations);
+  } catch (err) {
+    console.error("Erro ao buscar reservas por disciplina:", err);
+    res.status(500).json({ error: "Erro interno ao buscar reservas por disciplina." });
+  }
+});
+
+
 app.post("/teacher/:id/reservations", async (req, res) =>{
-  const {id} = req.params
-  const {studentName, discipline, date, startTime, endTime, isGroup} = req.body
+  const { id } = req.params
+  const { contractorName, contractorEmail, studentName, whatsappNumber, discipline, weekIndex,weekday, startTime, endTime} = req.body;
+
+  function toMinutes(timeString) {
+    const [h, m] = timeString.split(":").map(Number);
+    return h * 60 + m;
+  }
+
+  if (toMinutes(startTime) >= toMinutes(endTime)) {
+    return res.status(400).json({ error: "Horário inválido: endTime deve ser depois de startTime." });
+  }
+
+  if (!contractorName || !contractorEmail || !studentName || !whatsappNumber || !discipline || weekIndex == undefined || weekday === undefined || !startTime || !endTime) {
+    return res.status(400).json({ error: "Campos obrigatórios ausentes" });
+  }
+
   try{
+    const conflict = await Reservation.findOne({
+      where: {
+        teacherId: id,
+        weekday,
+        [Op.and] : [
+          {startTime: {[Op.lt] : endTime}},
+          {endTime: {[Op.gt] : startTime}},
+        ],
+      },
+    })
+
+    if(conflict){
+      return res.status(400).json({error: "Horário já reservado"})
+    }
+
+    const validAvailability = await TeacherAvailability.findOne({
+      where: {
+        teacherId: id,
+        weekday,
+        startTime: {[Op.lte] : startTime},
+        endTime: {[Op.gte] : endTime},
+      },
+    })
+
+    if(!validAvailability){
+      return res.status(400).json({error: "Horário fora da disponibilidade do professor"})
+    }
+
     const reservation = await Reservation.create({
       teacherId: id,
+      contractorName,
+      contractorEmail,
       studentName,
+      whatsappNumber,
       discipline,
-      date,
+      weekIndex,
+      weekday,
       startTime,
       endTime,
-      isGroup: isGroup || false,
-      status: "pending",
+    status: "pending",
     })
+
     res.status(201).json(reservation)
   }catch(err){
-    console.error(err)
-    res.status(500).json({error: "Erro ao criar reserva", details: err.message})
+    console.error(err);
+    res.status(500).json({ error: "Erro ao criar reserva", details: err.message });
   }
 })
+
+app.get("/availability/:discipline", async (req, res) => {
+  const { discipline } = req.params
+
+  try{
+    const allTeachers = await Teacher.findAll({
+      where: {
+        disciplines: {
+            [Op.like] : `%${discipline}%`
+          },
+        },
+        include: TeacherAvailability
+  })
+
+  const availableSlots = {};
+
+  for(const teacher of allTeachers){
+    for(const slot of teacher.TeacherAvailabilities){
+      const weekday = slot.weekday
+      const dayName = weekdayToName(weekday)
+
+      const conflict = await Reservation.findOne({where: {
+        teacherId: teacher.id,
+        weekday,
+        [Op.and]:[
+          {startTime: {[Op.lt]:slot.endTime}},
+          {endTime: {[Op.gt]:slot.startTime}},
+        ],
+      }
+    })
+
+    if(!conflict){
+      if(!availableSlots[dayName]) availableSlots[dayName] = []
+      availableSlots[dayName].push({
+        teacherId: teacher.id,
+        teacherName: teacher.name,
+        startTime: slot.startTime,
+        endTime: slot.endTime,
+      })
+    }
+  }
+  }
+  res.json({availability: availableSlots})
+  }catch(err){
+    //console.error("Erro ao buscar disponibilidade:", err);
+    res.status(500).json({ error: "Erro interno ao buscar disponibilidade." });
+  }
+})
+
+app.delete("/reservations/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deleted = await Reservation.destroy({ where: { id } });
+    if (!deleted) return res.status(404).json({ error: "Reserva não encontrada" });
+    res.sendStatus(204);
+  } catch (err) {
+    res.status(500).json({ error: "Erro ao deletar reserva" });
+  }
+});
+
+app.patch("/reservations/:id/status", async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  if (!["pending", "confirmed", "cancelled"].includes(status)) {
+    return res.status(400).json({ error: "Status inválido" });
+  }
+
+  try {
+    const reservation = await Reservation.findByPk(id);
+    if (!reservation) {
+      return res.status(404).json({ error: "Reserva não encontrada" });
+    }
+
+    reservation.status = status;
+    await reservation.save();
+
+    res.json({ message: "Status atualizado com sucesso", reservation });
+  } catch (err) {
+    res.status(500).json({ error: "Erro ao atualizar status da reserva" });
+  }
+});
+
 
 
 //Mensagem de Teste entre integração front e backend

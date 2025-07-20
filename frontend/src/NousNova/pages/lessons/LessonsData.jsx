@@ -148,7 +148,7 @@ const lessonsData = {
 
   piano: {
     title: "Aulas Particulares de Piano",
-    price: 75,
+    price: 70,
     subtitle: "Desperte sua musicalidade com o piano",
     discipline: disciplinesList.piano.label,
     description: "As aulas de piano combinam técnica, sensibilidade e teoria musical de forma integrada. Seja você iniciante ou já experiente, aqui desenvolvemos leitura, coordenação, percepção e repertório com acompanhamento próximo e adaptação ao seu ritmo.",

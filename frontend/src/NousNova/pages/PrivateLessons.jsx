@@ -53,7 +53,7 @@ function PrivateLessons() {
 
       <section className="catalog-container">
         {Object.entries(lessonsData).map(([key, lesson]) => {
-          const hasTeacher = disciplinesWithTeachers.has(lesson.discipline);
+          const hasTeacher = disciplinesWithTeachers.has(key);
           return hasTeacher ? (
             <Link
               key={key}

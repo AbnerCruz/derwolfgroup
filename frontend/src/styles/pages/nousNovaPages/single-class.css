@@ -1,0 +1,121 @@
+.plans-section {
+  padding: var(--espacamento-md);
+  background-color: var(--background-page);
+  color: var(--texto-escuro);
+  font-family: var(--fonte-texto);
+}
+
+.info-box {
+  background-color: var(--cinza-nebuloso);
+  padding: 1rem;
+  border-radius: var(--raio-arredondado);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.subsection-title {
+  font-family: var(--fonte-titulo);
+  color: var(--dourado-intenso);
+  margin-bottom: 1rem;
+}
+
+.catalog-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.discipline-checkbox {
+  display: flex;
+  align-items: center;
+  background-color: var(--branco-puro);
+  padding: 0.75rem 1rem;
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  cursor: pointer;
+  user-select: none;
+  min-width: 280px;
+  transition: background-color 0.3s ease;
+}
+
+.discipline-checkbox:hover {
+  background-color: var(--bege-classico);
+}
+
+.discipline-checkbox input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.discipline-label {
+  flex-grow: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--preto-cosmico);
+}
+
+.price-label {
+  font-size: 0.9rem;
+  color: var(--dourado-escuro);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.actions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.action-buttons-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-dark {
+  background-color: var(--dourado-intenso);
+  color: var(--branco-puro);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--raio-arredondado);
+  font-weight: 700;
+  font-family: var(--fonte-titulo);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  user-select: none;
+}
+
+.btn-dark:hover:not(.disabled) {
+  background-color: var(--dourado-brilhante);
+}
+
+.btn-dark.disabled,
+.btn-dark[aria-disabled="true"] {
+  background-color: var(--cinza-nebuloso);
+  color: var(--texto-escuro);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .catalog-container {
+    flex-direction: column;
+  }
+
+  .actions-container {
+    flex-direction: column;
+  }
+
+  .action-buttons-group {
+    justify-content: center;
+  }
+
+  .discipline-checkbox {
+    min-width: auto;
+  }
+}

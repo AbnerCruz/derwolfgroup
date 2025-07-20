@@ -19,7 +19,7 @@
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--sombra-suave);
   padding: 16px;
   transition: transform 0.2s ease;
   text-align: center;

@@ -17,6 +17,7 @@ export default function DisciplineSelector({
   whatsappLink,
   showErrorMessage,
   errorMessage,
+  agendar,
 }) {
   const selectedArray = Array.from(selectedTexts);
 
@@ -86,8 +87,8 @@ export default function DisciplineSelector({
       const newSelected = new Set(prev);
       if (number === 0) {
         for (const text of prev) {
-          const [discLabel] = text.split("|");
-          if (discLabel === discipline) newSelected.delete(text);
+          const [discKey] = text.split("|");
+          if (discKey === discipline) newSelected.delete(text);
         }
       }
       return newSelected;
@@ -97,11 +98,11 @@ export default function DisciplineSelector({
   return (
     <div className="prices-card">
       <h4>
-        {plan.label}: {plan.discount}% off
+        {plan.num} Aulas Por Mês: <span className="discount-badge">- {plan.discount}%</span>
       </h4>
 
       {disciplines.map((discipline) => {
-        const value = `${discipline.label}|${plan.id}`;
+        const value = `${discipline.key}|${plan.id}`;
         const isChecked = selectedTexts.has(value);
 
         const discount = plan.discount;
@@ -122,8 +123,8 @@ export default function DisciplineSelector({
                 min="0"
                 max={maxMonthlyLessons}
                 placeholder="Aulas/mês"
-                value={distribution[discipline.label] ?? ""}
-                onChange={(e) => handleDistributionChange(discipline.label, e.target.value)}
+                value={distribution[discipline.key] ?? ""}
+                onChange={(e) => handleDistributionChange(discipline.key, e.target.value)}
                 className="aula-distribution-input"
               />
             )}
@@ -155,10 +156,10 @@ export default function DisciplineSelector({
         </strong>
       </div>
 
-    <a
-    href={selectedArray.some((t) => t.includes(plan.id)) ? whatsappLink : "#"}
-    className="btn-dark"
-    onClick={(e) => {
+    <button
+      className="btn-dark"
+      onClick={(e) => {
+        e.preventDefault();
         const button = e.currentTarget;
         const totalDistribuidas = Object.values(distribution).reduce((a, b) => a + b, 0);
         const hasDisciplines = selectedArray.some((t) => t.includes(plan.id));
@@ -166,25 +167,24 @@ export default function DisciplineSelector({
         let errorMessage = null;
 
         if (!hasDisciplines) {
-        errorMessage = "Selecione pelo menos uma disciplina.";
+          errorMessage = "Selecione pelo menos uma disciplina.";
         } else if (totalDistribuidas < maxMonthlyLessons) {
-        errorMessage = `Distribua todas as ${maxMonthlyLessons} aulas antes de contratar.`;
+          errorMessage = `Distribua todas as ${maxMonthlyLessons} aulas antes de prosseguir.`;
         } else if (totalDistribuidas > maxMonthlyLessons) {
-        errorMessage = `Você distribuiu ${totalDistribuidas} aulas, mas o limite é ${maxMonthlyLessons}. Ajuste antes de prosseguir.`;
+          errorMessage = `Você distribuiu ${totalDistribuidas} aulas, mas o limite é ${maxMonthlyLessons}. Ajuste antes de prosseguir.`;
         }
 
         if (errorMessage) {
-        e.preventDefault();
-        button.classList.add("flash-error");
-        showErrorMessage(plan.id, errorMessage);
-        setTimeout(() => button.classList.remove("flash-error"), 500);
+          button.classList.add("flash-error");
+          showErrorMessage(plan.id, errorMessage);
+          setTimeout(() => button.classList.remove("flash-error"), 500);
+        } else {
+          agendar(); // ✅ Redireciona com os dados para a página de agendamento
         }
-    }}
-    target="_blank"
-    rel="noopener noreferrer"
+      }}
     >
-    Contratar
-    </a>
+      Agendar Aulas
+    </button>
 
 
     {errorMessage && (

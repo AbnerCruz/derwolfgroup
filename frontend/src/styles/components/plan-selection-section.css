@@ -1,46 +1,60 @@
+/* Container da navegação dos grupos de planos */
 .plan-group-navigation {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* melhor alinhamento para distribuir elementos */
   align-items: center;
-  gap: var(--espacamento-md);
-  margin-bottom: var(--espacamento-md);
+  gap: var(--espacamento-md, 1rem); /* uso da variável com fallback */
+  margin: 1.5rem 0 1rem;
+  width: 100%;
 }
 
+/* Botões da navegação */
 .plan-group-navigation button {
-  background-color: var(--azul-cosmico-1);
-  color: var(--branco-puro);
-  border-radius: var(--raio-arredondado);
-  padding: 0.5rem 1rem;
+  background-color: var(--azul-cosmico-1, #444);
+  color: var(--branco-puro, #fff);
+  border: none;
+  border-radius: var(--raio-arredondado, 8px);
+  padding: 0.4rem 1rem;
   font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  box-shadow: var(--sombra-suave);
+  box-shadow: var(--sombra-suave, none);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
+/* Hover dos botões */
 .plan-group-navigation button:hover {
-  background-color: var(--dourado-intenso);
-  color: var(--preto-cosmico);
+  background-color: var(--dourado-intenso, #000);
+  color: var(--preto-cosmico, #222);
 }
 
+/* Indicador do grupo */
 .plan-group-indicator {
   font-weight: 600;
   font-size: 1rem;
-  color: var(--azul-cosmico-1);
+  color: var(--azul-cosmico-1, #222);
+  margin: 1rem 3rem 1rem 3rem;
 }
 
 /* Caixa de erro com animação suave */
 .error-box {
   background-color: #ffe5e5;
-  color: var(--vermelho-alaranjado);
+  color: var(--vermelho-alaranjado, #d04545);
   padding: 0.75rem 1rem;
-  border: 1px solid var(--vermelho-alaranjado);
-  border-radius: var(--raio-arredondado);
+  border: 1px solid var(--vermelho-alaranjado, #d04545);
+  border-radius: var(--raio-arredondado, 8px);
   font-size: 0.95rem;
   margin-top: 1rem;
-  animation: fadeIn 0.3s ease-in-out;
   max-width: 100%;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Classe para disparar animação de erro */
+.animate-error {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animação fadeIn para suavizar aparição */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -50,8 +64,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.animate-error {
-  animation: fadeIn 0.3s ease-in-out;
 }

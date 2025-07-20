@@ -1,0 +1,214 @@
+.admin-reservations-page {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: var(--branco-puro);
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  font-family: var(--font-texto);
+  color: var(--texto-escuro);
+}
+
+.page-title {
+  font-family: var(--font-titulo);
+  color: var(--azul-cosmico-1);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.label-select {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.teacher-select {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--raio-arredondado);
+  background-color: var(--cinza-nebuloso);
+  color: var(--azul-cosmico-2);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.teacher-select:hover {
+  background-color: var(--bege-classico);
+}
+
+.loading-text,
+.no-reservations-text,
+.error-message {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: var(--vermelho-alaranjado);
+}
+
+.reservations-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+}
+
+.reservations-table thead {
+  background-color: var(--azul-cosmico-1);
+  color: var(--branco-puro);
+}
+
+.reservations-table th,
+.reservations-table td {
+  padding: 0.75rem;
+  text-align: center;
+  border: 1px solid var(--cinza-nebuloso);
+}
+
+.reservations-table tbody tr:nth-child(even) {
+  background-color: var(--bege-classico);
+}
+
+.reservations-table tbody tr:hover {
+  background-color: var(--dourado-brilhante);
+  color: var(--preto-cosmico);
+  transition: background-color 0.3s ease;
+}
+
+.confirm-button,
+.cancel-button,
+.delete-button {
+  padding: 0.4rem 0.75rem;
+  margin: 0 0.25rem;
+  border-radius: var(--raio-arredondado);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.confirm-button {
+  background-color: var(--verde-esmeralda);
+  color: var(--branco-puro);
+}
+
+.confirm-button:hover {
+  background-color: #219150;
+}
+
+.cancel-button {
+  background-color: var(--vermelho-alaranjado);
+  color: var(--branco-puro);
+}
+
+.cancel-button:hover {
+  background-color: #a93226;
+}
+
+.delete-button {
+  background-color: var(--dourado-escuro);
+  color: var(--branco-puro);
+}
+
+.delete-button:hover {
+  background-color: var(--dourado-intenso);
+  color: var(--preto-cosmico);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .reservations-table th,
+  .reservations-table td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .confirm-button,
+  .cancel-button,
+  .delete-button {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* admin-reservations.css */
+
+.agenda-table-container {
+  margin-top: 20px;
+  overflow-x: auto;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.agenda-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.agenda-table thead {
+  background-color: #003366;
+  color: white;
+}
+
+.agenda-table th,
+.agenda-table td {
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 8px;
+  min-width: 80px;
+  max-width: 120px;
+  word-break: break-word;
+}
+
+.agenda-table td {
+  background-color: #f9f9f9;
+}
+
+.agenda-table td:empty {
+  background-color: #eaeaea;
+}
+
+.agenda-table td[style*="lightgreen"] {
+  font-weight: bold;
+  color: #0b6623;
+}
+
+.agenda-table td[style*="#ffd966"] {
+  font-weight: bold;
+  color: #8a6d00;
+}
+
+.download-button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.download-button:hover {
+  background-color: #0059b3;
+}
+
+
+@media (max-width: 480px) {
+  .admin-reservations-page {
+    padding: 1rem;
+  }
+
+  .reservations-table {
+    font-size: 0.85rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+}

@@ -9,7 +9,7 @@ export default function PartnerSection({ disciplinesPartners }) {
           <div key={d.label} className="prices-card">
             <h4>{d.label}</h4>
             <p className="price-per-hour">
-              Preço por hora: R$ {d.basePrice.toFixed(2).replace(".", ",")}
+              Preço médio: R$ {d.basePrice.toFixed(2).replace(".", ",")}
             </p>
             <a
               href={d.contactURL}

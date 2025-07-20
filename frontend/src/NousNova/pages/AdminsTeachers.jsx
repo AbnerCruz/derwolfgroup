@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import "../../styles/pages/nousNovaPages/adminTeachers.css";
 import { disciplinesList } from "./lessons/LessonsData";
 
-const AVAILABLE_DISCIPLINES = Object.values(disciplinesList).map(d => d.label);
+const AVAILABLE_DISCIPLINES = Object.values(disciplinesList);
 
 function DisciplineCheckbox({ discipline, checked, onChange }) {
   return (
     <label className="discipline-label">
       <input
         type="checkbox"
-        value={discipline}
+        value={discipline.key}
         checked={checked}
         onChange={onChange}
       />
-      {discipline}
+      {discipline.label}
     </label>
   );
 }
@@ -214,9 +214,9 @@ function AdminTeachers() {
           <div className="disciplines-checkboxes">
             {AVAILABLE_DISCIPLINES.map((disc) => (
               <DisciplineCheckbox
-                key={disc}
+                key={disc.key}
                 discipline={disc}
-                checked={disciplines.includes(disc)}
+                checked={disciplines.includes(disc.key)}
                 onChange={handleDisciplineChange}
               />
             ))}

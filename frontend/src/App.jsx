@@ -16,6 +16,10 @@ import NousNovaPrivateLessons from "./NousNova/pages/PrivateLessons";
 import NousNovaCourses from "./NousNova/pages/Courses";
 import NousNovaTeachers from "./NousNova/pages/Teachers"
 import NousNovaAdminTeachers from "./NousNova/pages/AdminsTeachers"
+import AdminPricesPage from "./NousNova/pages/AdminPrices";
+import AdminReservationsPage from "./NousNova/pages/AdminReservations";
+import SchedulingPage from "./NousNova/pages/lessons/components/SchedulingPage";
+import ConfirmationPage from "./NousNova/pages/lessons/components/ConfirmationPage";
 
 //Nous Nova Lessons
 import PricesPage from "./NousNova/pages/lessons/PricesPage";
@@ -62,12 +66,16 @@ function App() {
         <Route path="about" element={<NousNovaAbout />} />
         <Route path="teachers" element={<NousNovaTeachers />} />
         <Route path="admin/teachers" element={<NousNovaAdminTeachers/>} />
+        <Route path="admin/prices" element={<AdminPricesPage/>} />
+        <Route path="admin/reservations" element={<AdminReservationsPage/>} />
 
         {/* Nous Nova Private Lessons */}
         <Route path="private-lessons" element={<NousNovaPrivateLessons />} />
           {/* Nous Nova Lessons */}
           <Route path="private-lessons/:subject" element={<PrivateLessonsWrapper />} />
           <Route path="private-lessons/prices" element={<PricesPage />} />
+        <Route path="private-lessons/prices/scheduling" element={<SchedulingPage/>} />
+        <Route path="private-lessons/prices/scheduling/confirmation" element={<ConfirmationPage/>} />
 
 
         {/* Nous Nova Courses */}

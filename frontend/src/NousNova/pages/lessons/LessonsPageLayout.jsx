@@ -78,6 +78,15 @@ function LessonPageLayout({
         </section>
       ))}
 
+      <section className="">
+        <div style={{width: "30%"}}>
+          <Link to={callToAction.button.to} className="btn btn-primary">
+            Agendar Aula
+          </Link>
+        </div>
+      </section>
+
+
       {courses && courses.length > 0 ? (
         <section className="lesson-section">
           <h2>Cursos Disponíveis</h2>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "../../styles/pages/nousNovaPages/teachers.css"; // estilo geral da página
 import "../../styles/components/catalog.css"; // layout estilo catálogo
 import "../../styles/components/card.css";    // estilo dos cards
+import { disciplinesList } from "./lessons/LessonsData";
 
 export function TeacherCard({ teacher, showDisciplines = false, availability = [] }) {
   const disciplinesArray = (() => {
@@ -33,7 +34,11 @@ export function TeacherCard({ teacher, showDisciplines = false, availability = [
         <h3 className="catalog-title">{teacher.name}</h3>
         {showDisciplines && (
           <p className="catalog-description">
-            Disciplinas: {disciplinesArray.join(", ")}
+            Disciplinas: {
+              disciplinesArray
+                .map(d => disciplinesList[d]?.label || d)
+                .join(", ")
+            }
           </p>
         )}
 

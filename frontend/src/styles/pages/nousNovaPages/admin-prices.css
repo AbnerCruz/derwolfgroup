@@ -1,0 +1,119 @@
+/* ===== Container Principal ===== */
+.admin-prices-container {
+  margin: var(--espacamento-md) auto;
+  padding: 2rem;
+  font-family: var(--fonte-texto);
+  background-color: var(--background-page);
+  color: var(--texto-escuro);
+  width: 90%;
+}
+
+/* ===== Botão Adicionar Painel ===== */
+.add-panel-button {
+  margin-bottom: var(--espacamento-md);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--fonte-texto);
+  color: var(--branco-puro);
+  background-color: var(--azul-cosmico-1);
+  border: none;
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-panel-button:hover,
+.add-panel-button:focus {
+  background-color: var(--azul-cosmico-2);
+  outline: none;
+}
+
+/* ===== Painel de Cálculo ===== */
+.plan-panel {
+  margin-bottom: var(--espacamento-md);
+  padding: var(--espacamento-md);
+  background-color: var(--branco-puro);
+  border: 1px solid var(--cinza-nebuloso);
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+}
+
+/* ===== Título do Painel ===== */
+.panel-title {
+  margin-top: 0;
+  margin-bottom: calc(var(--espacamento-md) / 2);
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--fonte-titulo);
+  color: var(--azul-cosmico-1);
+}
+
+/* ===== Rótulos de Inputs ===== */
+.input-label {
+  display: block;
+  margin-bottom: var(--espacamento-md);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--fonte-texto);
+  color: var(--texto-escuro);
+}
+
+/* ===== Inputs Genéricos ===== */
+.select-input,
+.number-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  font-family: var(--fonte-texto);
+  color: var(--texto-escuro);
+  background-color: var(--branco-puro);
+  border: 1px solid var(--cinza-nebuloso);
+  border-radius: var(--raio-arredondado);
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.select-input:focus,
+.number-input:focus {
+  border-color: var(--azul-celeste);
+  outline: none;
+  box-shadow: 0 0 5px var(--azul-celeste);
+}
+
+/* ===== Resultados ===== */
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.results span {
+  flex: 1 1 250px;
+  padding: 1rem;
+  background-color: var(--bege-classico);
+  border-radius: var(--raio-arredondado);
+  box-shadow: var(--sombra-suave);
+}
+
+.results p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--preto-cosmico);
+  font-family: var(--fonte-texto);
+}
+
+.results b {
+  font-weight: 700;
+  color: var(--dourado-escuro);
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+  .results {
+    flex-direction: column;
+  }
+}
